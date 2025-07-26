@@ -39,7 +39,7 @@ fun OpenScad.color(
   }
 }
 
-class Colors {
+class Color {
   companion object {
     const val RED = "red"
     const val GREEN = "green"

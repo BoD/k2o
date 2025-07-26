@@ -23,13 +23,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+@file:Suppress("FunctionName")
+
 package org.jraf.k2o.sample
 
 import kotlinx.io.asSink
 import kotlinx.io.buffered
 import org.jraf.k2o.dsl.OpenScad
 import org.jraf.k2o.dsl.writeOpenScad
-import org.jraf.k2o.stdlib.Colors
+import org.jraf.k2o.stdlib.Color
 import org.jraf.k2o.stdlib.call
 import org.jraf.k2o.stdlib.color
 import org.jraf.k2o.stdlib.cube
@@ -45,12 +47,12 @@ import org.jraf.k2o.stdlib.use
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-private fun OpenScad.base(
+private fun OpenScad.Base(
   width: Int,
   thickness: Int,
   indentWidth: Int,
 ) {
-  color(Colors.GREEN) {
+  color(Color.GREEN) {
     difference {
       cylinder(height = thickness, radius = width / 2)
 
@@ -66,7 +68,7 @@ private fun OpenScad.base(
   }
 }
 
-private fun OpenScad.leg(
+private fun OpenScad.Leg(
   thickness: Number,
   width: Number,
   height: Number,
@@ -91,7 +93,7 @@ private fun OpenScad.leg(
   }
 }
 
-private fun OpenScad.mugBooster() {
+private fun OpenScad.MugBooster() {
   use("star.scad")
 
   val baseWidth = 100
@@ -122,30 +124,30 @@ private fun OpenScad.mugBooster() {
     union {
       // Base
       translate(0, 0, baseHeight) {
-        base(width = baseWidth, thickness = baseThickness, indentWidth = baseIndentWidth)
+        Base(width = baseWidth, thickness = baseThickness, indentWidth = baseIndentWidth)
       }
 
       // Right bottom leg
       translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, -legYDistance / 2 - legWidth / 2, 0) {
-        leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
+        Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
       }
 
       // Right top leg
       translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, legYDistance / 2 - legWidth / 2, 0) {
-        leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
+        Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
       }
 
       // Left top leg
       rotate(0, 0, 180) {
         translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, -legYDistance / 2 - legWidth / 2, 0) {
-          leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
+          Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
         }
       }
 
       // Left bottom leg
       rotate(0, 0, 180) {
         translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, legYDistance / 2 - legWidth / 2, 0) {
-          leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
+          Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
         }
       }
     }
@@ -158,6 +160,6 @@ private fun OpenScad.mugBooster() {
 
 fun main() {
   writeOpenScad(System.out.asSink().buffered()) {
-    mugBooster()
+    MugBooster()
   }
 }

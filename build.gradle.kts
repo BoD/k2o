@@ -3,7 +3,9 @@ plugins {
   kotlin("jvm").apply(false)
 }
 
-group = "org.jraf.k2o"
-version = "1.0.0"
+allprojects {
+  group = "org.jraf"
+  version = "1.0.0"
+}
 
 // `./gradlew refreshVersions` to update dependencies
