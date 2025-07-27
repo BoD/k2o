@@ -25,17 +25,18 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
-fun OpenScad.color(
+@Composable
+fun color(
   color: String,
-  children: OpenScad.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
-  addLine("color(\"$color\")")
+  Line("color(\"$color\")")
   withBraces {
-    children(this)
+    content()
   }
 }
 

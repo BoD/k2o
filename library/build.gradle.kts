@@ -1,5 +1,7 @@
 plugins {
   kotlin("multiplatform")
+  id("org.jetbrains.compose")
+  kotlin("plugin.compose")
   id("maven-publish")
   id("org.jetbrains.dokka")
   id("signing")
@@ -37,11 +39,21 @@ kotlin {
       kotlin.srcDir(generateVersionKtTask)
 
       dependencies {
+        // Compose
+        api(compose.runtime)
+
         // Logging
         implementation("org.jraf:klibnanolog:_")
 
         // Kotlinx IO
         api("org.jetbrains.kotlinx:kotlinx-io-core:_")
+      }
+    }
+
+    jvmMain {
+      dependencies {
+        // Not sure why this is needed, but Compose JVM whines without it
+        implementation(AndroidX.collection)
       }
     }
   }

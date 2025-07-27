@@ -25,22 +25,23 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.resize(
+@Composable
+fun resize(
   x: Number,
   y: Number,
   z: Number,
   auto: Boolean,
-  children: OpenScad.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
-  addLine(
+  Line(
     "resize([${x.formatted()}, ${y.formatted()}, ${z.formatted()}], auto = $auto)",
   )
   withBraces {
-    children(this)
+    content()
   }
 }

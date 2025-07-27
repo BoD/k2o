@@ -25,23 +25,19 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Indent
+import org.jraf.k2o.dsl.Line
+import org.jraf.k2o.dsl.Unindent
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.circle(
-  radius: Number? = null,
-  diameter: Number? = null,
-) {
-  addLine(
-    if (radius == null && diameter == null) {
-      "circle();"
-    } else if (radius != null && diameter != null) {
-      error("Only one of radius or diameter can be specified")
-    } else if (radius != null) {
-      "circle(${radius.formatted()});"
-    } else {
-      "circle(d = $diameter.format($radius));"
-    },
-  )
+@Composable
+fun Polygon(vararg points: Pair<Number, Number>) {
+  Line("polygon([")
+  Indent()
+  for ((x, y) in points) {
+    Line("[${x.formatted()}, ${y.formatted()}],")
+  }
+  Unindent()
+  Line("]);")
 }

@@ -23,41 +23,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@file:Suppress("FunctionName")
-
 package org.jraf.k2o.sample
 
+import androidx.compose.runtime.Composable
 import kotlinx.io.asSink
 import kotlinx.io.buffered
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.writeOpenScad
+import org.jraf.k2o.dsl.openScad
+import org.jraf.k2o.stdlib.Call
 import org.jraf.k2o.stdlib.Color
-import org.jraf.k2o.stdlib.call
+import org.jraf.k2o.stdlib.Cube
+import org.jraf.k2o.stdlib.Cylinder
+import org.jraf.k2o.stdlib.Square
+import org.jraf.k2o.stdlib.Use
 import org.jraf.k2o.stdlib.color
-import org.jraf.k2o.stdlib.cube
-import org.jraf.k2o.stdlib.cylinder
 import org.jraf.k2o.stdlib.difference
 import org.jraf.k2o.stdlib.linearExtrude
 import org.jraf.k2o.stdlib.rotate
 import org.jraf.k2o.stdlib.rotateExtrude
-import org.jraf.k2o.stdlib.square
 import org.jraf.k2o.stdlib.translate
 import org.jraf.k2o.stdlib.union
-import org.jraf.k2o.stdlib.use
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-private fun OpenScad.Base(
+@Composable
+private fun Base(
   width: Int,
   thickness: Int,
   indentWidth: Int,
 ) {
   color(Color.GREEN) {
     difference {
-      cylinder(height = thickness, radius = width / 2)
+      Cylinder(height = thickness, radius = width / 2)
 
       linearExtrude(thickness * 2) {
-        call(
+        Call(
           "star",
           "p" to 5,
           "r1" to width / 2 - indentWidth * 2,
@@ -68,7 +67,8 @@ private fun OpenScad.Base(
   }
 }
 
-private fun OpenScad.Leg(
+@Composable
+private fun Leg(
   thickness: Number,
   width: Number,
   height: Number,
@@ -78,23 +78,24 @@ private fun OpenScad.Leg(
     rotate(90, 0, 0) {
       rotateExtrude(90) {
         translate(curveRadius, 0, 0) {
-          square(thickness, width)
+          Square(thickness, width)
         }
       }
     }
   }
 
   translate(curveRadius, 0, 0) {
-    cube(thickness, width, height.toDouble() - curveRadius.toDouble())
+    Cube(thickness, width, height.toDouble() - curveRadius.toDouble())
   }
 
   translate(-15, 0, height) {
-    cube(15, width, thickness)
+    Cube(15, width, thickness)
   }
 }
 
-private fun OpenScad.MugBooster() {
-  use("star.scad")
+@Composable
+private fun MugBooster() {
+  Use("star.scad")
 
   val baseWidth = 100
   val baseThickness = 4
@@ -153,13 +154,13 @@ private fun OpenScad.MugBooster() {
     }
     // Indent
     translate(0, 0, baseHeight + baseThickness - baseIndentHeight) {
-      cylinder(height = baseIndentHeight * 2, radius = baseWidth / 2 - baseIndentWidth)
+      Cylinder(height = baseIndentHeight * 2, radius = baseWidth / 2 - baseIndentWidth)
     }
   }
 }
 
 fun main() {
-  writeOpenScad(System.out.asSink().buffered()) {
+  openScad(System.out.asSink().buffered()) {
     MugBooster()
   }
 }

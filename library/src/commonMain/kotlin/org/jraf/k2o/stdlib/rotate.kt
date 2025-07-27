@@ -25,29 +25,31 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.rotate(
+@Composable
+fun rotate(
   xDegrees: Number,
   yDegrees: Number,
   zDegrees: Number,
-  children: OpenScad.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
-  addLine("rotate([${xDegrees.formatted()}, ${yDegrees.formatted()}, ${zDegrees.formatted()}])")
+  Line("rotate([${xDegrees.formatted()}, ${yDegrees.formatted()}, ${zDegrees.formatted()}])")
   withBraces {
-    children(this)
+    content()
   }
 }
 
-fun OpenScad.rotate(
+@Composable
+fun rotate(
   zDegrees: Int,
-  children: OpenScad.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
-  addLine("rotate(${zDegrees.formatted()})")
+  Line("rotate(${zDegrees.formatted()})")
   withBraces {
-    children(this)
+    content()
   }
 }

@@ -25,14 +25,15 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.rotateExtrude(degrees: Number = 360, children: OpenScad.() -> Unit) {
-  addLine("rotate_extrude(${degrees.formatted()})");
+@Composable
+fun rotateExtrude(degrees: Number = 360, content: @Composable () -> Unit) {
+  Line("rotate_extrude(${degrees.formatted()})");
   withBraces {
-    children(this)
+    content()
   }
 }

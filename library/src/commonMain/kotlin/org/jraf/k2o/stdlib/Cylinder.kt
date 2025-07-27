@@ -25,13 +25,27 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.square(
-  width: Number,
-  height: Number = width,
+@Composable
+fun Cylinder(
+  height: Number,
+  radius: Number? = null,
+  diameter: Number? = null,
+  segments: Int? = null,
 ) {
-  addLine("square([${width.formatted()}, ${height.formatted()}]);")
+  val segments = if (segments != null) ", \$fn = $segments" else ""
+  Line(
+    if (radius == null && diameter == null) {
+      "cylinder(h = ${height.formatted()}$segments);"
+    } else if (radius != null && diameter != null) {
+      error("Only one of radius or diameter can be specified")
+    } else if (radius != null) {
+      "cylinder(h = ${height.formatted()}, r = ${radius.formatted()}$segments);"
+    } else {
+      "cylinder(h = ${height.formatted()}, d = ${diameter!!.formatted()}$segments);"
+    },
+  )
 }

@@ -25,31 +25,10 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
-import org.jraf.k2o.dsl.indent
-import org.jraf.k2o.dsl.unindent
-import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 
-fun OpenScad.call(module: String, vararg args: Pair<String, Any>, children: (OpenScad.() -> Unit)? = null) {
-  addLine("$module(")
-  indent()
-  for ((name, value) in args) {
-    val v = when (value) {
-      is String -> "\"$value\""
-      is Number -> value.formatted()
-      else -> value.toString()
-    }
-    addLine("$name = $v,")
-  }
-  unindent()
-  if (children != null) {
-    addLine(")")
-    withBraces {
-      children(this)
-    }
-  } else {
-    addLine(");")
-  }
+@Composable
+fun Import(path: String, center: Boolean) {
+  Line("import(\"$path\", center = $center);")
 }

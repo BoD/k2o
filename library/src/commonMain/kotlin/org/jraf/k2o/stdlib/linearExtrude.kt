@@ -25,14 +25,15 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.linearExtrude(height: Number, children: OpenScad.() -> Unit) {
-  addLine("linear_extrude(${height.formatted()})");
+@Composable
+fun linearExtrude(height: Number, content: @Composable () -> Unit) {
+  Line("linear_extrude(${height.formatted()})");
   withBraces {
-    children(this)
+    content()
   }
 }

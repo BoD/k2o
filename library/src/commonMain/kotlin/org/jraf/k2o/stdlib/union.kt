@@ -25,13 +25,14 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
-fun OpenScad.union(children: OpenScad.() -> Unit) {
-  addLine("union()")
+@Composable
+fun union(content: @Composable () -> Unit) {
+  Line("union()")
   withBraces {
-    children(this)
+    content()
   }
 }

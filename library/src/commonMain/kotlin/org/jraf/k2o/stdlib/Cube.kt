@@ -25,23 +25,29 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.sphere(
-  radius: Number? = null,
-  diameter: Number? = null,
+@Composable
+fun Cube(
+  x: Number,
+  y: Number,
+  z: Number,
+  center: Boolean = false,
 ) {
-  addLine(
-    if (radius == null && diameter == null) {
-      "sphere();"
-    } else if (radius != null && diameter != null) {
-      error("Only one of radius or diameter can be specified")
-    } else if (radius != null) {
-      "sphere(r = ${radius.formatted()});"
-    } else {
-      "sphere(d = ${diameter!!.formatted()});"
-    },
-  )
+  if (center) {
+    Line("cube([${x.formatted()}, ${y.formatted()}, ${z.formatted()}], center = true);")
+  } else {
+    Line("cube([${x.formatted()}, ${y.formatted()}, ${z.formatted()}]);")
+  }
+}
+
+@Composable
+fun Cube(size: Number, center: Boolean = false) {
+  if (center) {
+    Line("cube(${size.formatted()}, center = true);")
+  } else {
+    Line("cube(${size.formatted()});")
+  }
 }

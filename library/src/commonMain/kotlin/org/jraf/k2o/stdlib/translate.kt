@@ -25,18 +25,19 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.dsl.OpenScad
-import org.jraf.k2o.dsl.addLine
+import androidx.compose.runtime.Composable
+import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
-fun OpenScad.translate(
+@Composable
+fun translate(
   x: Number,
   y: Number,
   z: Number? = null,
-  children: OpenScad.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
-  addLine(
+  Line(
     if (z == null) {
       "translate([${x.formatted()}, ${y.formatted()}])"
     } else {
@@ -44,6 +45,6 @@ fun OpenScad.translate(
     },
   )
   withBraces {
-    children(this)
+    content()
   }
 }
