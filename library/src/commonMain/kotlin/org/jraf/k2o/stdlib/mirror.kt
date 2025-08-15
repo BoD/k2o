@@ -32,17 +32,13 @@ import org.jraf.k2o.formatting.formatted
 
 @Composable
 fun mirror(
-  x: Number,
-  y: Number,
-  z: Number? = null,
+  x: Number = 0,
+  y: Number = 0,
+  z: Number = 0,
   content: @Composable () -> Unit,
 ) {
   Line(
-    if (z == null) {
-      "mirror([${x.formatted()}, ${y.formatted()}])"
-    } else {
-      "mirror([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])"
-    },
+    "mirror([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])",
   )
   withBraces {
     content()

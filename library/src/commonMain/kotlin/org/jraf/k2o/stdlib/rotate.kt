@@ -32,23 +32,12 @@ import org.jraf.k2o.formatting.formatted
 
 @Composable
 fun rotate(
-  xDegrees: Number,
-  yDegrees: Number,
-  zDegrees: Number,
+  x: Number = 0,
+  y: Number = 0,
+  z: Number = 0,
   content: @Composable () -> Unit,
 ) {
-  Line("rotate([${xDegrees.formatted()}, ${yDegrees.formatted()}, ${zDegrees.formatted()}])")
-  withBraces {
-    content()
-  }
-}
-
-@Composable
-fun rotate(
-  zDegrees: Int,
-  content: @Composable () -> Unit,
-) {
-  Line("rotate(${zDegrees.formatted()})")
+  Line("rotate([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])")
   withBraces {
     content()
   }

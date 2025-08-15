@@ -27,20 +27,9 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
 
 @Composable
-fun translate(
-  x: Number = 0,
-  y: Number = 0,
-  z: Number = 0,
-  content: @Composable () -> Unit,
-) {
-  Line(
-    "translate([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])",
-  )
-  withBraces {
-    content()
-  }
+fun Comment(comment: String, newLine: Boolean = true) {
+  if (newLine) Line("")
+  Line("// $comment")
 }

@@ -74,21 +74,21 @@ private fun Leg(
   height: Number,
   curveRadius: Number,
 ) {
-  translate(0, width, height.toDouble() - curveRadius.toDouble()) {
-    rotate(90, 0, 0) {
+  translate(y = width, z = height.toDouble() - curveRadius.toDouble()) {
+    rotate(x = 90) {
       rotateExtrude(90) {
-        translate(curveRadius, 0, 0) {
+        translate(x = curveRadius) {
           Square(thickness, width)
         }
       }
     }
   }
 
-  translate(curveRadius, 0, 0) {
+  translate(x = curveRadius) {
     Cube(thickness, width, height.toDouble() - curveRadius.toDouble())
   }
 
-  translate(-15, 0, height) {
+  translate(x = -15, z = height) {
     Cube(15, width, thickness)
   }
 }
@@ -124,36 +124,36 @@ private fun MugBooster() {
   difference {
     union {
       // Base
-      translate(0, 0, baseHeight) {
+      translate(z = baseHeight) {
         Base(width = baseWidth, thickness = baseThickness, indentWidth = baseIndentWidth)
       }
 
       // Right bottom leg
-      translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, -legYDistance / 2 - legWidth / 2, 0) {
+      translate(x = legXDistance / 2 - baseThickness / 2 - legCurveRadius, y = -legYDistance / 2 - legWidth / 2) {
         Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
       }
 
       // Right top leg
-      translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, legYDistance / 2 - legWidth / 2, 0) {
+      translate(x = legXDistance / 2 - baseThickness / 2 - legCurveRadius, y = legYDistance / 2 - legWidth / 2) {
         Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
       }
 
       // Left top leg
-      rotate(0, 0, 180) {
-        translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, -legYDistance / 2 - legWidth / 2, 0) {
+      rotate(z = 180) {
+        translate(x = legXDistance / 2 - baseThickness / 2 - legCurveRadius, y = -legYDistance / 2 - legWidth / 2) {
           Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
         }
       }
 
       // Left bottom leg
-      rotate(0, 0, 180) {
-        translate(legXDistance / 2 - baseThickness / 2 - legCurveRadius, legYDistance / 2 - legWidth / 2, 0) {
+      rotate(z = 180) {
+        translate(x = legXDistance / 2 - baseThickness / 2 - legCurveRadius, y = legYDistance / 2 - legWidth / 2) {
           Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
         }
       }
     }
     // Indent
-    translate(0, 0, baseHeight + baseThickness - baseIndentHeight) {
+    translate(z = baseHeight + baseThickness - baseIndentHeight) {
       Cylinder(height = baseIndentHeight * 2, radius = baseWidth / 2 - baseIndentWidth)
     }
   }
