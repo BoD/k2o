@@ -110,19 +110,24 @@ publishing {
   }
 }
 
+val doSign = !project.findProperty("signing.keyId")?.toString().isNullOrBlank()
 signing {
   // Note: declare the signature key, password and file in your home's gradle.properties like this:
   // signing.keyId=<8 character key>
   // signing.password=<your password>
   // signing.secretKeyRingFile=<absolute path to the gpg private key>
-  sign(publishing.publications)
+  if (doSign) {
+    sign(publishing.publications)
+  }
 }
 
 // Workaround for https://youtrack.jetbrains.com/issue/KT-46466
 val dependsOnTasks = mutableListOf<String>()
 tasks.withType<AbstractPublishToMaven>().configureEach {
-  dependsOnTasks.add(this.name.replace("publish", "sign").replaceAfter("Publication", ""))
-  dependsOn(dependsOnTasks)
+  if (doSign) {
+    dependsOnTasks.add(this.name.replace("publish", "sign").replaceAfter("Publication", ""))
+    dependsOn(dependsOnTasks)
+  }
 }
 
 dokka {
