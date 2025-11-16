@@ -31,24 +31,13 @@ import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
 @Composable
-fun rotate(
-  x: Number = 0,
-  y: Number = 0,
-  z: Number = 0,
+fun offset(
+  r: Number = 1,
+  delta: Number = 0,
+  chamfer: Boolean = false,
   content: @Composable () -> Unit,
 ) {
-  Line("rotate([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])")
-  withBraces {
-    content()
-  }
-}
-
-@Composable
-fun rotate(
-  angle: Number,
-  content: @Composable () -> Unit,
-) {
-  Line("rotate(${angle.formatted()})")
+  Line("offset(r = ${r.formatted()}, delta = ${delta.formatted()}, chamfer = $chamfer)")
   withBraces {
     content()
   }
