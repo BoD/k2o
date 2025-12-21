@@ -4,6 +4,7 @@ pluginManagement {
   repositories {
     mavenCentral()
     gradlePluginPortal()
+    maven("https://central.sonatype.com/repository/maven-snapshots/")
   }
 }
 
@@ -12,13 +13,13 @@ dependencyResolutionManagement {
   repositories {
     mavenCentral()
     google()
-    mavenLocal()
+    maven("https://central.sonatype.com/repository/maven-snapshots/")
   }
 }
 
 plugins {
   // See https://splitties.github.io/refreshVersions/
-  id("de.fayard.refreshVersions") version "0.60.5"
+  id("de.fayard.refreshVersions") version "0.60.6"
 }
 
 include(
