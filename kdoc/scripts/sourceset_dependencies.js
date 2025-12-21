@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":k2o/commonMain":[],":k2o/jvmMain":[":k2o/commonMain"]}'
