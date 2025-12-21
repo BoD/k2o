@@ -1,3 +1,5 @@
+import com.gradleup.librarian.gradle.Librarian
+
 plugins {
   kotlin("jvm")
   id("org.jetbrains.compose")
@@ -12,3 +14,5 @@ dependencies {
   // K2o
   implementation(project(":k2o"))
 }
+
+Librarian.module(project)
