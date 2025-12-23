@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.jraf.k2o</groupId>
+  <artifactId>kdoc</artifactId>
+  <versioning>
+    <lastUpdated>20251223182418</lastUpdated>
+    <snapshot>
+      <timestamp>20251223.182418</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier>javadoc</classifier>
+        <extension>jar</extension>
+        <value>1.0.1-20251223.182418-1</value>
+        <updated>20251223182418</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.1-20251223.182418-1</value>
+        <updated>20251223182418</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.0.1-SNAPSHOT</version>
+</metadata>

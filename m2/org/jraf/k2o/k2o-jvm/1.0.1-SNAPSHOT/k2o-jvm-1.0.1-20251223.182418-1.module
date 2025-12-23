@@ -1,0 +1,156 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../k2o/1.0.1-SNAPSHOT/k2o-1.0.1-SNAPSHOT.module",
+    "group": "org.jraf.k2o",
+    "module": "k2o",
+    "version": "1.0.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.1.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.8.2",
+            "rejects": [
+              "_"
+            ]
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-jvm-1.0.1-SNAPSHOT.jar",
+          "url": "k2o-jvm-1.0.1-SNAPSHOT.jar",
+          "size": 66901,
+          "sha512": "82a18ac05607eed2a7e72efbb62a7a2f21abe7a37ec2193032a45c01466ca50a43de5f3172648cb229371f31cbed758b1526086282273fe5074376ec1f368591",
+          "sha256": "f61bb06acccbdb793fbba64afe1d2d2da624b8dfcbc18bfbd9c8366f385495e0",
+          "sha1": "a721e7ce50431610556025ce87d409520d8f7ca3",
+          "md5": "76ced4b5fe32c53f35d9396559cf3436"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.9.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.8.2",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "androidx.collection",
+          "module": "collection",
+          "version": {
+            "requires": "1.5.0",
+            "rejects": [
+              "_"
+            ]
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.0.0",
+            "rejects": [
+              "_"
+            ]
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-jvm-1.0.1-SNAPSHOT.jar",
+          "url": "k2o-jvm-1.0.1-SNAPSHOT.jar",
+          "size": 66901,
+          "sha512": "82a18ac05607eed2a7e72efbb62a7a2f21abe7a37ec2193032a45c01466ca50a43de5f3172648cb229371f31cbed758b1526086282273fe5074376ec1f368591",
+          "sha256": "f61bb06acccbdb793fbba64afe1d2d2da624b8dfcbc18bfbd9c8366f385495e0",
+          "sha1": "a721e7ce50431610556025ce87d409520d8f7ca3",
+          "md5": "76ced4b5fe32c53f35d9396559cf3436"
+        }
+      ]
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "k2o-jvm-1.0.1-SNAPSHOT-sources.jar",
+          "url": "k2o-jvm-1.0.1-SNAPSHOT-sources.jar",
+          "size": 22389,
+          "sha512": "e5b441d74dd9868f78cacf6134d57d95859f6cd3a4733784fb1b72c33f316e98beaa092bfd59b47824e885cef3bf0b6b7fe11332d154df4b5350ffb004506258",
+          "sha256": "d107fa50675380592f8f1be1ca241c81e1350e1dd4f874b6be9a0302a6cf7b7a",
+          "sha1": "b672d4b8d56cc6da8400538e3c3c4e0293ae759b",
+          "md5": "da2913c2e3bddef4b087ff907cbf2924"
+        }
+      ]
+    }
+  ]
+}
