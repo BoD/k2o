@@ -1,0 +1,146 @@
+public final class org/jraf/k2o/VersionKt {
+	public static final field VERSION Ljava/lang/String;
+}
+
+public final class org/jraf/k2o/dsl/OpenScad {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun add (Lorg/jraf/k2o/dsl/OpenScad$Element;)V
+	public final fun write (Lkotlinx/io/Sink;)V
+}
+
+public abstract interface class org/jraf/k2o/dsl/OpenScad$Element {
+	public abstract fun getContent ()Ljava/lang/String;
+}
+
+public abstract interface class org/jraf/k2o/dsl/OpenScad$NewLineElement : org/jraf/k2o/dsl/OpenScad$Element {
+}
+
+public final class org/jraf/k2o/dsl/OpenScadKt {
+	public static final fun Indent (Landroidx/compose/runtime/Composer;I)V
+	public static final fun Line (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+	public static final fun Text (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+	public static final fun Unindent (Landroidx/compose/runtime/Composer;I)V
+	public static final fun getLocalOpenScad ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun openScad (Lkotlinx/io/Sink;DDLkotlin/jvm/functions/Function2;)V
+	public static synthetic fun openScad$default (Lkotlinx/io/Sink;DDLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V
+	public static final fun withBraces (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/formatting/NumbersKt {
+	public static final fun formatted (Ljava/lang/Number;)Ljava/lang/String;
+}
+
+public final class org/jraf/k2o/math/TrigKt {
+	public static final fun atan (Ljava/lang/Number;)D
+	public static final fun cos (Ljava/lang/Number;)D
+	public static final fun degreesToRadians (Ljava/lang/Number;)D
+	public static final fun radiansToDegrees (Ljava/lang/Number;)D
+	public static final fun sin (Ljava/lang/Number;)D
+}
+
+public final class org/jraf/k2o/stdlib/CallKt {
+	public static final fun Call (Ljava/lang/String;[Lkotlin/Pair;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/CircleKt {
+	public static final fun Circle (Ljava/lang/Number;Ljava/lang/Number;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/Color {
+	public static final field $stable I
+	public static final field BLACK Ljava/lang/String;
+	public static final field BLUE Ljava/lang/String;
+	public static final field CYAN Ljava/lang/String;
+	public static final field Companion Lorg/jraf/k2o/stdlib/Color$Companion;
+	public static final field GRAY Ljava/lang/String;
+	public static final field GREEN Ljava/lang/String;
+	public static final field MAGENTA Ljava/lang/String;
+	public static final field ORANGE Ljava/lang/String;
+	public static final field RED Ljava/lang/String;
+	public static final field WHITE Ljava/lang/String;
+	public static final field YELLOW Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class org/jraf/k2o/stdlib/Color$Companion {
+}
+
+public final class org/jraf/k2o/stdlib/ColorKt {
+	public static final fun color (Ljava/lang/String;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/CommentKt {
+	public static final fun Comment (Ljava/lang/String;ZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/CubeKt {
+	public static final fun Cube (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun Cube (Ljava/lang/Number;ZLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/CylinderKt {
+	public static final fun Cylinder (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/DifferenceKt {
+	public static final fun difference (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/HullKt {
+	public static final fun hull (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/ImportKt {
+	public static final fun Import (Ljava/lang/String;ZLandroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/LinearExtrudeKt {
+	public static final fun linearExtrude (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/MirrorKt {
+	public static final fun mirror (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/OffsetKt {
+	public static final fun offset (Ljava/lang/Number;Ljava/lang/Number;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/PolygonKt {
+	public static final fun Polygon ([Lkotlin/Pair;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/ResizeKt {
+	public static final fun resize (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/RotateExtrudeKt {
+	public static final fun rotateExtrude (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/RotateKt {
+	public static final fun rotate (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun rotate (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/SphereKt {
+	public static final fun Sphere (Ljava/lang/Number;Ljava/lang/Number;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/SquareKt {
+	public static final fun Square (Ljava/lang/Number;Ljava/lang/Number;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/TranslateKt {
+	public static final fun translate (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class org/jraf/k2o/stdlib/UnionKt {
+	public static final fun union (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/UseKt {
+	public static final fun Use (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+}
+
