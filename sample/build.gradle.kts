@@ -12,3 +12,9 @@ dependencies {
   // K2o
   implementation(project(":k2o"))
 }
+
+configurations.named { it == "mainSourceElements" }.configureEach {
+  attributes {
+    attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, "sources"))
+  }
+}
