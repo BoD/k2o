@@ -1,3 +1,5 @@
+[![Maven Central](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Forg%2Fjraf%2Fk2o%2Fk2o%2Fmaven-metadata.xml&style=flat-square&label=maven-central&strategy=latestProperty)](https://central.sonatype.com/namespace/org.jraf.k2o) [![Maven Snapshots](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Forg%2Fjraf%2Fk2o%2Fk2o%2Fmaven-metadata.xml&style=flat-square&label=snapshots&color=%2315252D&strategy=latestProperty)](https://central.sonatype.com/repository/maven-snapshots/org/jraf/k2o)
+
 # k2o
 
 K2o or "Kotlin to OpenSCAD" is a Kotlin DSL to generate OpenSCAD code.
