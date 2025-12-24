@@ -22,11 +22,11 @@
  * limitations under the License.
  */
 
+@file:Suppress("SameParameterValue")
+
 package org.jraf.k2o.sample
 
 import androidx.compose.runtime.Composable
-import kotlinx.io.asSink
-import kotlinx.io.buffered
 import org.jraf.k2o.dsl.openScad
 import org.jraf.k2o.stdlib.Call
 import org.jraf.k2o.stdlib.Color
@@ -159,7 +159,7 @@ private fun MugBooster() {
 }
 
 fun main() {
-  openScad(System.out.asSink().buffered()) {
+  openScad {
     MugBooster()
   }
 }
