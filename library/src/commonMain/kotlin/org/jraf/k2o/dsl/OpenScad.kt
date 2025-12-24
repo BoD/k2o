@@ -121,7 +121,7 @@ fun withBraces(content: @Composable () -> Unit) {
 }
 
 fun openScad(
-  sink: Sink,
+  sink: Sink = defaultSink(),
   fa: Double = 0.1,
   fs: Double = 0.1,
   content: @Composable () -> Unit,
@@ -149,3 +149,5 @@ private class NoOpApplier : AbstractApplier<Unit>(Unit) {
 }
 
 val LocalOpenScad: ProvidableCompositionLocal<OpenScad> = staticCompositionLocalOf { OpenScad() }
+
+expect internal fun defaultSink(): Sink
