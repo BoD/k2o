@@ -3,11 +3,10 @@
   <groupId>org.jraf.k2o</groupId>
   <artifactId>k2o-jvm</artifactId>
   <versioning>
-    <latest>1.1.0</latest>
-    <release>1.1.0</release>
+    <latest>1.1.1-SNAPSHOT</latest>
     <versions>
-      <version>1.1.0</version>
+      <version>1.1.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20251224173436</lastUpdated>
+    <lastUpdated>20251224174941</lastUpdated>
   </versioning>
 </metadata>
