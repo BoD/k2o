@@ -41,7 +41,7 @@ private fun CubeMinusSphere() {
   difference {
     Cube(size = 10)
     translate(x = 2.5, y = 2.5, z = 2.5) {
-      Sphere(r = 5)
+      Sphere(radius = 5)
     }
   }
 }
