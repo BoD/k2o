@@ -1,5 +1,9 @@
 # Next version (unreleased)
 
+# v1.2.1 - 2026-01-10
+
+Add missing parameters to `linearExtrude()` and `offset()`.
+
 # v1.2.0 - 2026-01-10
 
 Add `minkowski()`.
