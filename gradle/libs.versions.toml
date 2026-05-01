@@ -1,0 +1,20 @@
+[versions]
+kotlin = "2.4.0-Beta2"
+androidx-collection = "1.6.0"
+compose = "1.10.3"
+kotlinx-io = "0.9.0"
+librarian = "0.2.2-SNAPSHOT"
+klibnanolog = "1.1.0"
+
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+librarian = { id = "com.gradleup.librarian", version.ref = "librarian" }
+
+[libraries]
+androidx-collection = { group = "androidx.collection", name = "collection", version.ref = "androidx-collection" }
+compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose" }
+kotlinx-io = { group = "org.jetbrains.kotlinx", name = "kotlinx-io-core", version.ref = "kotlinx-io" }
+klibnanolog = { group = "org.jraf.klibnanolog", name = "klibnanolog", version.ref = "klibnanolog" }

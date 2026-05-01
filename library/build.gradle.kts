@@ -1,9 +1,9 @@
 import com.gradleup.librarian.gradle.Librarian
 
 plugins {
-  kotlin("multiplatform")
-  id("org.jetbrains.compose")
-  kotlin("plugin.compose")
+  alias(libs.plugins.kotlin.multiplatform)
+  alias(libs.plugins.compose)
+  alias(libs.plugins.kotlin.compose)
 }
 
 kotlin {
@@ -13,22 +13,27 @@ kotlin {
     commonMain {
       dependencies {
         // Compose
-        api(compose.runtime)
+        api(libs.compose.runtime)
 
         // Logging
-        implementation("org.jraf.klibnanolog:klibnanolog:_")
+        implementation(libs.klibnanolog)
 
         // Kotlinx IO
-        api("org.jetbrains.kotlinx:kotlinx-io-core:_")
+        api(libs.kotlinx.io)
       }
     }
 
     jvmMain {
       dependencies {
         // Not sure why this is needed, but Compose JVM whines without it
-        implementation(AndroidX.collection)
+        implementation(libs.androidx.collection)
       }
     }
+  }
+
+  compilerOptions {
+    // See https://kotlinlang.org/docs/whatsnew-eap.html#support-for-collection-literals
+    freeCompilerArgs.add("-Xcollection-literals")
   }
 }
 

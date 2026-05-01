@@ -1,7 +1,7 @@
 plugins {
-  kotlin("jvm")
-  id("org.jetbrains.compose")
-  kotlin("plugin.compose")
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.compose)
+  alias(libs.plugins.kotlin.compose)
 }
 
 kotlin {
@@ -11,11 +11,4 @@ kotlin {
 dependencies {
   // K2o
   implementation(project(":k2o"))
-}
-
-// See https://github.com/BoD/k2o/pull/4
-configurations.named { it == "mainSourceElements" }.configureEach {
-  attributes {
-    attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, "sources"))
-  }
 }

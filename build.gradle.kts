@@ -1,11 +1,11 @@
 import com.gradleup.librarian.gradle.Librarian
 
 plugins {
-  kotlin("multiplatform").apply(false)
-  kotlin("jvm").apply(false)
-  id("org.jetbrains.compose").apply(false)
-  kotlin("plugin.compose").apply(false)
-  id("com.gradleup.librarian").apply(false)
+  alias(libs.plugins.kotlin.multiplatform).apply(false)
+  alias(libs.plugins.kotlin.jvm).apply(false)
+  alias(libs.plugins.compose).apply(false)
+  alias(libs.plugins.kotlin.compose).apply(false)
+  alias(libs.plugins.librarian).apply(false)
 }
 
 Librarian.root(project)

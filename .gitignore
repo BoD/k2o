@@ -7,3 +7,4 @@ out
 !.idea/codeStyles
 build.properties
 .kotlin/*
+versions.properties
