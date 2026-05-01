@@ -31,12 +31,22 @@ import org.jraf.k2o.formatting.formatted
 
 @Composable
 fun offset(
-  r: Number = 1,
-  delta: Number = 0,
+  r: Number,
+  content: @Composable () -> Unit,
+) {
+  Line("offset(r = ${r.formatted()})")
+  withBraces {
+    content()
+  }
+}
+
+@Composable
+fun offset(
+  delta: Number,
   chamfer: Boolean = false,
   content: @Composable () -> Unit,
 ) {
-  Line("offset(r = ${r.formatted()}, delta = ${delta.formatted()}, chamfer = $chamfer)")
+  Line("offset(delta = ${delta.formatted()}${if (chamfer) ", chamfer = true" else ""})")
   withBraces {
     content()
   }

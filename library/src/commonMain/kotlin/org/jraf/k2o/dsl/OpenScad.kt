@@ -113,10 +113,19 @@ fun Line(content: String) {
 fun withBraces(content: @Composable () -> Unit) {
   with(LocalOpenScad.current) {
     Text(" {")
+    indent {
+      content()
+    }
+    Line("}")
+  }
+}
+
+@Composable
+fun indent(content: @Composable () -> Unit) {
+  with(LocalOpenScad.current) {
     Indent()
     content()
     Unindent()
-    Line("}")
   }
 }
 

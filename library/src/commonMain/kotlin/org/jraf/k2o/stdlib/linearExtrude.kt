@@ -26,12 +26,67 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
+import org.jraf.k2o.dsl.Text
+import org.jraf.k2o.dsl.indent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
 @Composable
-fun linearExtrude(height: Number, content: @Composable () -> Unit) {
-  Line("linear_extrude(${height.formatted()})");
+fun linearExtrude(
+  height: Number,
+  content: @Composable () -> Unit,
+) {
+  Line("linear_extrude(${height.formatted()})")
+  withBraces {
+    content()
+  }
+}
+
+@Composable
+fun linearExtrude(
+  height: Number,
+  v: Vect? = null,
+  center: Boolean? = null,
+  twist: Number? = null,
+  scale: Number? = null,
+  slices: Int? = null,
+  segments: Int? = null,
+  convexity: Int? = null,
+  content: @Composable () -> Unit,
+) {
+  Line("linear_extrude(")
+  indent {
+    Line("height = ${height.formatted()}")
+    v?.let {
+      Text(",")
+      Line("v = $it")
+    }
+    center?.let {
+      Text(",")
+      Line("center = $it")
+    }
+    twist?.let {
+      Text(",")
+      Line("twist = ${it.formatted()}")
+    }
+    scale?.let {
+      Text(",")
+      Line("scale = ${it.formatted()}")
+    }
+    slices?.let {
+      Text(",")
+      Line("slices = $it")
+    }
+    segments?.let {
+      Text(",")
+      Line("segments = $it")
+    }
+    convexity?.let {
+      Text(",")
+      Line("convexity = $it")
+    }
+  }
+  Line(")")
   withBraces {
     content()
   }
