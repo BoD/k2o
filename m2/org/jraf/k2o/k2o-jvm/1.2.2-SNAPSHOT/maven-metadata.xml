@@ -3,38 +3,38 @@
   <groupId>org.jraf.k2o</groupId>
   <artifactId>k2o-jvm</artifactId>
   <versioning>
-    <lastUpdated>20260501132803</lastUpdated>
+    <lastUpdated>20260525103016</lastUpdated>
     <snapshot>
-      <timestamp>20260501.132803</timestamp>
+      <timestamp>20260525.103016</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>1.2.2-20260501.132803-1</value>
-        <updated>20260501132803</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>pom</extension>
-        <value>1.2.2-20260501.132803-1</value>
-        <updated>20260501132803</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>jar</extension>
-        <value>1.2.2-20260501.132803-1</value>
-        <updated>20260501132803</updated>
+        <value>1.2.2-20260525.103016-1</value>
+        <updated>20260525103016</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>module</extension>
-        <value>1.2.2-20260501.132803-1</value>
-        <updated>20260501132803</updated>
+        <value>1.2.2-20260525.103016-1</value>
+        <updated>20260525103016</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.2.2-20260525.103016-1</value>
+        <updated>20260525103016</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>1.2.2-20260501.132803-1</value>
-        <updated>20260501132803</updated>
+        <value>1.2.2-20260525.103016-1</value>
+        <updated>20260525103016</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.2.2-20260525.103016-1</value>
+        <updated>20260525103016</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
