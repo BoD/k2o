@@ -26,7 +26,7 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.dsl.Text
+import org.jraf.k2o.dsl.RawText
 import org.jraf.k2o.dsl.indent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
@@ -82,31 +82,31 @@ fun linearExtrude(
   indent {
     Line("height = ${height.formatted()}")
     v?.let {
-      Text(",")
+      RawText(",")
       Line("v = $it")
     }
     if (center) {
-      Text(",")
+      RawText(",")
       Line("center = true")
     }
     twist?.let {
-      Text(",")
+      RawText(",")
       Line("twist = ${it.formatted()}")
     }
     scale?.let {
-      Text(",")
+      RawText(",")
       Line("scale = ${it.formatted()}")
     }
     slices?.let {
-      Text(",")
+      RawText(",")
       Line("slices = $it")
     }
     segments?.let {
-      Text(",")
+      RawText(",")
       Line("segments = $it")
     }
     convexity?.let {
-      Text(",")
+      RawText(",")
       Line("convexity = $it")
     }
   }

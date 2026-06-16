@@ -50,7 +50,7 @@ private fun Base(
   thickness: Int,
   indentWidth: Int,
 ) {
-  color(Color.GREEN) {
+  color(Color.Green) {
     difference {
       Cylinder(height = thickness, radius = width / 2)
 

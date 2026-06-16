@@ -44,7 +44,7 @@ import kotlin.coroutines.EmptyCoroutineContext
  * Accumulates the [Element]s produced while running a DSL block and renders them, handling indentation, to a [Sink].
  *
  * You rarely need to use this type directly: [openScad] creates one for you and exposes it through [LocalOpenScad].
- * It is relevant mostly when writing low-level building blocks on top of [Text], [Line], [Indent] and [Unindent].
+ * It is relevant mostly when writing low-level building blocks on top of [RawText], [Line], [Indent] and [Unindent].
  */
 class OpenScad {
   private val elements = mutableListOf<Element>()
@@ -118,7 +118,7 @@ private class TextElement(override val content: String) : Element
  * emit a full line.
  */
 @Composable
-fun Text(content: String) {
+fun RawText(content: String) {
   LocalOpenScad.current.add(TextElement(content))
 }
 
@@ -140,7 +140,7 @@ fun Line(content: String) {
 @Composable
 fun withBraces(content: @Composable () -> Unit) {
   with(LocalOpenScad.current) {
-    Text(" {")
+    RawText(" {")
     indent {
       content()
     }

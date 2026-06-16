@@ -52,15 +52,15 @@ fun color(
  */
 class Color {
   companion object {
-    const val RED = "red"
-    const val GREEN = "green"
-    const val BLUE = "blue"
-    const val YELLOW = "yellow"
-    const val CYAN = "cyan"
-    const val MAGENTA = "magenta"
-    const val BLACK = "black"
-    const val WHITE = "white"
-    const val GRAY = "gray"
-    const val ORANGE = "orange"
+    const val Red = "red"
+    const val Green = "green"
+    const val Blue = "blue"
+    const val Yellow = "yellow"
+    const val Cyan = "cyan"
+    const val Magenta = "magenta"
+    const val Black = "black"
+    const val White = "white"
+    const val Gray = "gray"
+    const val Orange = "orange"
   }
 }

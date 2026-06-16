@@ -14,7 +14,7 @@ class ColorTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        color(Color.RED) {
+        color(Color.Red) {
           Cube(2)
         }
       },
