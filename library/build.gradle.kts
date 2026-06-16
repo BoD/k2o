@@ -10,6 +10,11 @@ kotlin {
   jvm()
 
   sourceSets {
+    jvmTest {
+      dependencies {
+        implementation(kotlin("test"))
+      }
+    }
     commonMain {
       dependencies {
         // Compose

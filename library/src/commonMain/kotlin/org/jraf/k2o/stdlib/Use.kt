@@ -29,5 +29,5 @@ import org.jraf.k2o.dsl.Line
 
 @Composable
 fun Use(path: String) {
-  Line("use <$path>")
+  Line("use <$path>;")
 }

@@ -1,10 +1,10 @@
 [versions]
-kotlin = "2.4.0-Beta2"
+kotlin = "2.4.0"
 androidx-collection = "1.6.0"
-compose = "1.10.3"
+compose = "1.11.1"
 kotlinx-io = "0.9.0"
 librarian = "0.2.2-SNAPSHOT"
-klibnanolog = "1.1.0"
+klibnanolog = "1.2.0"
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
