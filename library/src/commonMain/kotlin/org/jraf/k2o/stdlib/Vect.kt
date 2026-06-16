@@ -40,7 +40,7 @@ data class Vect(
           append("]")
         } else {
           append(", ")
-          append(", 0")
+          append("0, ")
           append(z.formatted())
           append("]")
         }
