@@ -28,6 +28,14 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
+/**
+ * Applies a [color](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#color) to its children for
+ * preview rendering (colors are ignored when exporting to most formats).
+ *
+ * @param color A color name (e.g. one of the [Color] constants) or any value accepted by OpenSCAD's `color()`, such
+ * as a `"#rrggbb"` hex string.
+ * @param content The children to color.
+ */
 @Composable
 fun color(
   color: String,
@@ -39,6 +47,9 @@ fun color(
   }
 }
 
+/**
+ * Convenience constants for the standard OpenSCAD color names, for use with [color].
+ */
 class Color {
   companion object {
     const val RED = "red"

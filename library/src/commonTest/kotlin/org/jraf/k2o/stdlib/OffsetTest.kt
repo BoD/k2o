@@ -14,7 +14,7 @@ class OffsetTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        offset(r = 1.5) {
+        offset(radius = 1.5) {
           Square(2)
         }
       },

@@ -27,7 +27,11 @@ package org.jraf.k2o.formatting
 import kotlin.math.floor
 
 /**
- * Formats a number such as if the decimal is 0, it is not displayed.
+ * Formats this number for inclusion in OpenSCAD output.
+ *
+ * Integers are printed as-is, and whole floating-point values are printed without a decimal part (e.g. `2.0` becomes
+ * `"2"`). Fractional values are rounded to three decimal places (micrometre precision at OpenSCAD's millimetre scale)
+ * with trailing zeros trimmed, keeping the generated code compact and readable.
  */
 fun Number.formatted(): String {
   return if (this is Int || this is Long) {

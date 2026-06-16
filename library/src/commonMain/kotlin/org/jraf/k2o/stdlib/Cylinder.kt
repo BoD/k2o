@@ -28,6 +28,19 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * Creates a [cylinder](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#cylinder) standing on the
+ * XY plane.
+ *
+ * At most one of [radius] or [diameter] may be specified; specifying both throws. When neither is given, OpenSCAD's
+ * default size is used.
+ *
+ * @param height The height of the cylinder along the Z axis.
+ * @param radius The radius of the cylinder.
+ * @param diameter The diameter of the cylinder.
+ * @param segments The number of fragments used to approximate the circle (OpenSCAD's `$fn`). When `null`, the
+ * resolution defined by `$fa`/`$fs` is used.
+ */
 @Composable
 fun Cylinder(
   height: Number,

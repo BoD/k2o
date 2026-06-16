@@ -28,6 +28,16 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * Creates a 2D [circle](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#circle) centered on the
+ * origin.
+ *
+ * At most one of [radius] or [diameter] may be specified; specifying both throws. When neither is given, OpenSCAD's
+ * default size is used.
+ *
+ * @param radius The radius of the circle.
+ * @param diameter The diameter of the circle.
+ */
 @Composable
 fun Circle(
   radius: Number? = null,

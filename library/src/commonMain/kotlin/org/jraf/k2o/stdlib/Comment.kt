@@ -27,6 +27,13 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 
+/**
+ * Emits a single-line `//` comment into the generated OpenSCAD.
+ *
+ * @param comment The comment text (without the leading `//`).
+ * @param newLine When `true` (the default), an empty line is inserted before the comment to visually separate it from
+ * what precedes it.
+ */
 @Composable
 fun Comment(comment: String, newLine: Boolean = true) {
   if (newLine) Line("")

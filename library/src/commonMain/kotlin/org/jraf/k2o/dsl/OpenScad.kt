@@ -40,13 +40,21 @@ import org.jraf.k2o.formatting.formatted
 import org.jraf.k2o.stdlib.Comment
 import kotlin.coroutines.EmptyCoroutineContext
 
+/**
+ * Accumulates the [Element]s produced while running a DSL block and renders them, handling indentation, to a [Sink].
+ *
+ * You rarely need to use this type directly: [openScad] creates one for you and exposes it through [LocalOpenScad].
+ * It is relevant mostly when writing low-level building blocks on top of [Text], [Line], [Indent] and [Unindent].
+ */
 class OpenScad {
   private val elements = mutableListOf<Element>()
 
+  /** Appends a raw [element] to the output being built. */
   fun add(element: Element) {
     elements.add(element)
   }
 
+  /** Renders all accumulated elements to [sink], applying the indentation accumulated by [Indent]/[Unindent]. */
   fun write(sink: Sink) {
     var indent = 0
     for ((i, element) in elements.withIndex()) {
@@ -80,6 +88,10 @@ private object Indent : Element {
   override val content = ""
 }
 
+/**
+ * Increases the indentation level of everything emitted afterwards by one, until a matching [Unindent]. Low-level
+ * building block, mostly useful when writing custom DSL functions.
+ */
 @Composable
 fun Indent() {
   LocalOpenScad.current.add(Indent)
@@ -90,6 +102,10 @@ private object Unindent : Element {
   override val content = ""
 }
 
+/**
+ * Decreases the indentation level by one, undoing a previous [Indent]. Low-level building block, mostly useful when
+ * writing custom DSL functions.
+ */
 @Composable
 fun Unindent() {
   LocalOpenScad.current.add(Unindent)
@@ -97,6 +113,10 @@ fun Unindent() {
 
 private class TextElement(override val content: String) : Element
 
+/**
+ * Appends raw [content] to the current line, without starting a new one. Low-level building block; prefer [Line] to
+ * emit a full line.
+ */
 @Composable
 fun Text(content: String) {
   LocalOpenScad.current.add(TextElement(content))
@@ -104,11 +124,19 @@ fun Text(content: String) {
 
 private class LineElement(override val content: String) : NewLineElement
 
+/**
+ * Emits [content] on a new line, indented at the current level. This is the main building block for writing custom
+ * DSL functions.
+ */
 @Composable
 fun Line(content: String) {
   LocalOpenScad.current.add(LineElement(content))
 }
 
+/**
+ * Wraps [content] in a ` { ... }` block, emitting the opening brace on the current line, the [content] indented one
+ * level, and the closing brace on its own line. Handy when writing custom DSL functions that take children.
+ */
 @Composable
 fun withBraces(content: @Composable () -> Unit) {
   with(LocalOpenScad.current) {
@@ -120,6 +148,9 @@ fun withBraces(content: @Composable () -> Unit) {
   }
 }
 
+/**
+ * Runs [content] with the indentation level increased by one, pairing [Indent] and [Unindent] automatically.
+ */
 @Composable
 fun indent(content: @Composable () -> Unit) {
   with(LocalOpenScad.current) {
@@ -129,6 +160,17 @@ fun indent(content: @Composable () -> Unit) {
   }
 }
 
+/**
+ * Entry point of the DSL: runs the given [content] and writes the resulting OpenSCAD code to [sink].
+ *
+ * The output starts with a generated header that sets the `$fa` and `$fs` special variables, followed by the code
+ * produced by [content]. All other k2o composables must be called, directly or transitively, from within this block.
+ *
+ * @param sink Where the generated OpenSCAD code is written. Defaults to standard output.
+ * @param fa The minimum angle (in degrees) for a fragment, written as `$fa`. Smaller values give smoother curves.
+ * @param fs The minimum size of a fragment, written as `$fs`. Smaller values give smoother curves.
+ * @param content The design to render, expressed with the k2o DSL.
+ */
 fun openScad(
   sink: Sink = defaultSink(),
   fa: Double = 0.1,
@@ -157,6 +199,10 @@ private class NoOpApplier : AbstractApplier<Unit>(Unit) {
   override fun onClear() {}
 }
 
+/**
+ * The [OpenScad] instance for the current [openScad] block, made available to composables without having to pass it
+ * explicitly. Custom DSL functions read it (via `LocalOpenScad.current`) to emit their output.
+ */
 val LocalOpenScad: ProvidableCompositionLocal<OpenScad> = staticCompositionLocalOf { OpenScad() }
 
-expect internal fun defaultSink(): Sink
+internal expect fun defaultSink(): Sink

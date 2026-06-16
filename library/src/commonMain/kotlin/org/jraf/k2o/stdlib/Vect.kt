@@ -26,6 +26,16 @@ package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * A 1D, 2D or 3D vector, rendered as an OpenSCAD vector literal such as `[1, 2, 3]`.
+ *
+ * Unset higher components are omitted (a [Vect] with only [x] renders as `[x]`). As a special case, when only [x] and
+ * [z] are set the missing [y] is rendered as `0`, producing `[x, 0, z]`.
+ *
+ * @param x The first (X) component.
+ * @param y The second (Y) component, or `null` if unset.
+ * @param z The third (Z) component, or `null` if unset.
+ */
 data class Vect(
   val x: Number,
   val y: Number? = null,
@@ -59,6 +69,11 @@ data class Vect(
   }
 
   companion object {
+    /**
+     * Builds a [Vect] from one to three components, in `(x, y, z)` order.
+     *
+     * @param elements The components; must contain between one and three values.
+     */
     operator fun of(vararg elements: Number): Vect {
       check(elements.isNotEmpty()) { "At least one element is required" }
       check(elements.size <= 3) { "At most three elements are allowed" }

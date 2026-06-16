@@ -30,6 +30,12 @@ import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.Unindent
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * Creates a 2D [polygon](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#polygon) from a list of
+ * points, connected in order with the last point joined back to the first.
+ *
+ * @param points The `(x, y)` vertices of the polygon, in order.
+ */
 @Composable
 fun Polygon(vararg points: Pair<Number, Number>) {
   Line("polygon([")

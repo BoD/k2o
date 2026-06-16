@@ -31,6 +31,13 @@ import org.jraf.k2o.dsl.indent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * [Linear-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#linear_extrude) a 2D shape
+ * straight up the Z axis into a 3D solid of the given height.
+ *
+ * @param height The height of the extrusion along the Z axis.
+ * @param content The 2D children to extrude.
+ */
 @Composable
 fun linearExtrude(
   height: Number,
@@ -42,6 +49,23 @@ fun linearExtrude(
   }
 }
 
+/**
+ * [Linear-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#linear_extrude) a 2D shape
+ * into a 3D solid, with full control over twisting, scaling and resolution.
+ *
+ * @param height The height of the extrusion along the Z axis.
+ * @param v The direction and length of the extrusion, as a vector. When `null`, the extrusion goes straight up the Z
+ * axis for [height].
+ * @param center When `false` (the default), the solid grows up from the XY plane. When `true`, it is centered on the
+ * plane.
+ * @param twist The total rotation, in degrees, applied from bottom to top.
+ * @param scale The scale factor applied to the top face (`1` keeps the original size).
+ * @param slices The number of intermediate layers, mainly relevant when [twist] is used.
+ * @param segments The number of fragments (OpenSCAD's `$fn`) used for the extrusion.
+ * @param convexity A hint for the preview renderer, equal to the maximum number of faces a ray crosses through the
+ * solid.
+ * @param content The 2D children to extrude.
+ */
 @Composable
 fun linearExtrude(
   height: Number,
