@@ -53,9 +53,10 @@ fun linearExtrude(
  * [Linear-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#linear_extrude) a 2D shape
  * into a 3D solid, with full control over twisting, scaling and resolution.
  *
- * @param height The height of the extrusion along the Z axis.
- * @param v The direction and length of the extrusion, as a vector. When `null`, the extrusion goes straight up the Z
- * axis for [height].
+ * @param height The height of the extrusion: how far the shape travels along [direction].
+ * @param direction The direction in which the shape is extruded, as a vector. When `null`, the shape is extruded
+ * straight up the Z axis. Only the direction of the vector matters: its length is ignored, since [height] is what sets
+ * how far the shape travels.
  * @param center When `false` (the default), the solid grows up from the XY plane. When `true`, it is centered on the
  * plane.
  * @param twist The total rotation, in degrees, applied from bottom to top.
@@ -69,7 +70,7 @@ fun linearExtrude(
 @Composable
 fun linearExtrude(
   height: Number,
-  v: Vect? = null,
+  direction: Vect? = null,
   center: Boolean = false,
   twist: Number? = null,
   scale: Number? = null,
@@ -81,7 +82,7 @@ fun linearExtrude(
   Line("linear_extrude(")
   indent {
     Line("height = ${height.formatted()}")
-    v?.let {
+    direction?.let {
       RawText(",")
       Line("v = $it")
     }

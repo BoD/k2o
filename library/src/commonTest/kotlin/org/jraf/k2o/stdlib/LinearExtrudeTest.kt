@@ -41,7 +41,7 @@ class LinearExtrudeTest {
       renderOpenScad {
         linearExtrude(
           height = 5,
-          v = [0, 0, 1],
+          direction = [0, 0, 1],
           center = true,
           twist = 90,
           scale = 1.5,
