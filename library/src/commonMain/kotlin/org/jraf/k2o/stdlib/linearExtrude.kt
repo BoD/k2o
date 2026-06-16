@@ -46,7 +46,7 @@ fun linearExtrude(
 fun linearExtrude(
   height: Number,
   v: Vect? = null,
-  center: Boolean? = null,
+  center: Boolean = false,
   twist: Number? = null,
   scale: Number? = null,
   slices: Int? = null,
@@ -61,9 +61,9 @@ fun linearExtrude(
       Text(",")
       Line("v = $it")
     }
-    center?.let {
+    if (center) {
       Text(",")
-      Line("center = $it")
+      Line("center = true")
     }
     twist?.let {
       Text(",")
