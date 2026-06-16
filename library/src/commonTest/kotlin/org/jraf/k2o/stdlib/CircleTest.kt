@@ -37,6 +37,26 @@ class CircleTest {
   }
 
   @Test
+  fun radiusAndSegments() {
+    assertEquals(
+      $$"circle(2.5, $fn = 48);",
+      renderOpenScad {
+        Circle(radius = 2.5, segments = 48)
+      },
+    )
+  }
+
+  @Test
+  fun segmentsOnly() {
+    assertEquals(
+      $$"circle($fn = 100);",
+      renderOpenScad {
+        Circle(segments = 100)
+      },
+    )
+  }
+
+  @Test
   fun radiusAndDiameterFails() {
     assertFailsWith<IllegalStateException> {
       renderOpenScad {

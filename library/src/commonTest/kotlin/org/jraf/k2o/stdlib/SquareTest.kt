@@ -24,5 +24,15 @@ class SquareTest {
       },
     )
   }
+
+  @Test
+  fun centered() {
+    assertEquals(
+      "square([4, 2.5], center = true);",
+      renderOpenScad {
+        Square(width = 4, height = 2.5, center = true)
+      },
+    )
+  }
 }
 
