@@ -8,13 +8,9 @@ plugins {
 
 kotlin {
   jvm()
+  macosArm64()
 
   sourceSets {
-    jvmTest {
-      dependencies {
-        implementation(kotlin("test"))
-      }
-    }
     commonMain {
       dependencies {
         // Compose
@@ -32,6 +28,12 @@ kotlin {
       dependencies {
         // Not sure why this is needed, but Compose JVM whines without it
         implementation(libs.androidx.collection)
+      }
+    }
+
+    commonTest {
+      dependencies {
+        implementation(kotlin("test"))
       }
     }
   }
