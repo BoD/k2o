@@ -37,10 +37,58 @@ class CylinderTest {
   }
 
   @Test
+  fun radiusCentered() {
+    assertEquals(
+      "cylinder(h = 10, r = 2.5, center = true);",
+      renderOpenScad {
+        Cylinder(height = 10, radius = 2.5, center = true)
+      },
+    )
+  }
+
+  @Test
+  fun cone() {
+    assertEquals(
+      "cylinder(h = 10, r1 = 5, r2 = 2);",
+      renderOpenScad {
+        Cylinder(height = 10, radius = 5, topRadius = 2)
+      },
+    )
+  }
+
+  @Test
+  fun coneByDiameter() {
+    assertEquals(
+      "cylinder(h = 10, d1 = 10, d2 = 4);",
+      renderOpenScad {
+        Cylinder(height = 10, diameter = 10, topDiameter = 4)
+      },
+    )
+  }
+
+  @Test
   fun radiusAndDiameterFails() {
     assertFailsWith<IllegalStateException> {
       renderOpenScad {
         Cylinder(height = 10, radius = 2, diameter = 4)
+      }
+    }
+  }
+
+  @Test
+  fun mixRadiusAndDiameterConeFails() {
+    assertFailsWith<IllegalStateException> {
+      renderOpenScad {
+        Cylinder(height = 10, radius = 2, topDiameter = 4)
+      }
+    }
+  }
+
+  @Test
+  fun topRadiusWithoutRadiusFails() {
+    assertFailsWith<IllegalStateException> {
+      renderOpenScad {
+        Cylinder(height = 10, topRadius = 4)
       }
     }
   }

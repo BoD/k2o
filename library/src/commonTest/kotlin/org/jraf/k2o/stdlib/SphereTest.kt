@@ -37,6 +37,26 @@ class SphereTest {
   }
 
   @Test
+  fun radiusAndSegments() {
+    assertEquals(
+      $$"sphere(r = 2.5, $fn = 64);",
+      renderOpenScad {
+        Sphere(radius = 2.5, segments = 64)
+      },
+    )
+  }
+
+  @Test
+  fun segmentsOnly() {
+    assertEquals(
+      $$"sphere($fn = 64);",
+      renderOpenScad {
+        Sphere(segments = 64)
+      },
+    )
+  }
+
+  @Test
   fun radiusAndDiameterFails() {
     assertFailsWith<IllegalStateException> {
       renderOpenScad {

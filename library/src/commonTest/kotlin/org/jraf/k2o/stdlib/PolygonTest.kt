@@ -20,4 +20,25 @@ class PolygonTest {
       },
     )
   }
+
+  @Test
+  fun pathsAndConvexity() {
+    assertEquals(
+      """
+      polygon([
+        [0, 0],
+        [4, 0],
+        [4, 4],
+        [0, 4],
+      ], paths = [[0, 1, 2, 3]], convexity = 2);
+      """.trimIndent(),
+      renderOpenScad {
+        Polygon(
+          0 to 0, 4 to 0, 4 to 4, 0 to 4,
+          paths = listOf(listOf(0, 1, 2, 3)),
+          convexity = 2,
+        )
+      },
+    )
+  }
 }

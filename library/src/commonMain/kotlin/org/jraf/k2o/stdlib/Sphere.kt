@@ -37,21 +37,24 @@ import org.jraf.k2o.formatting.formatted
  *
  * @param radius The radius of the sphere.
  * @param diameter The diameter of the sphere.
+ * @param segments The number of fragments used to approximate the sphere (OpenSCAD's `$fn`). When `null`, the
+ * resolution defined by `$fa`/`$fs` is used.
  */
 @Composable
 fun Sphere(
   radius: Number? = null,
   diameter: Number? = null,
+  segments: Int? = null,
 ) {
-  Line(
-    if (radius == null && diameter == null) {
-      "sphere();"
-    } else if (radius != null && diameter != null) {
-      error("Only one of radius or diameter can be specified")
-    } else if (radius != null) {
-      "sphere(r = ${radius.formatted()});"
-    } else {
-      "sphere(d = ${diameter!!.formatted()});"
-    },
-  )
+  if (radius != null && diameter != null) {
+    error("Only one of radius or diameter can be specified")
+  }
+  val sizeArg = when {
+    radius != null -> "r = ${radius.formatted()}"
+    diameter != null -> "d = ${diameter.formatted()}"
+    else -> null
+  }
+  val segmentsArg = if (segments != null) "\$fn = $segments" else null
+  val args = listOfNotNull(sizeArg, segmentsArg).joinToString(", ")
+  Line("sphere($args);")
 }

@@ -35,9 +35,18 @@ import org.jraf.k2o.formatting.formatted
  * At most one of [radius] or [diameter] may be specified; specifying both throws. When neither is given, OpenSCAD's
  * default size is used.
  *
+ * Sizing is done either with [radius] or with [diameter] (the two are mutually exclusive). When only [radius] (or
+ * [diameter]) is given, the result is a regular cylinder. When [topRadius] (or [topDiameter]) is also given, the
+ * result is a cone or truncated cone: [radius] is the radius at the bottom and [topRadius] the radius at the top.
+ *
  * @param height The height of the cylinder along the Z axis.
- * @param radius The radius of the cylinder.
- * @param diameter The diameter of the cylinder.
+ * @param radius The radius of the cylinder, or the radius of the bottom end when [topRadius] is also given.
+ * @param topRadius The radius of the top end. When given, [radius] becomes the bottom radius and the result is a cone.
+ * @param diameter The diameter of the cylinder, or the diameter of the bottom end when [topDiameter] is also given.
+ * @param topDiameter The diameter of the top end. When given, [diameter] becomes the bottom diameter and the result
+ * is a cone.
+ * @param center When `false` (the default), the cylinder sits on the XY plane. When `true`, it is centered on the
+ * origin along the Z axis.
  * @param segments The number of fragments used to approximate the circle (OpenSCAD's `$fn`). When `null`, the
  * resolution defined by `$fa`/`$fs` is used.
  */
@@ -45,19 +54,38 @@ import org.jraf.k2o.formatting.formatted
 fun Cylinder(
   height: Number,
   radius: Number? = null,
+  topRadius: Number? = null,
   diameter: Number? = null,
+  topDiameter: Number? = null,
+  center: Boolean = false,
   segments: Int? = null,
 ) {
-  val segments = if (segments != null) ", \$fn = $segments" else ""
-  Line(
-    if (radius == null && diameter == null) {
-      "cylinder(h = ${height.formatted()}$segments);"
-    } else if (radius != null && diameter != null) {
-      error("Only one of radius or diameter can be specified")
+  val isRadius = radius != null || topRadius != null
+  val isDiameter = diameter != null || topDiameter != null
+  check(!(isRadius && isDiameter)) { "Cannot mix radius/topRadius with diameter/topDiameter" }
+  check(topRadius == null || radius != null) {
+    "topRadius requires radius (radius is the bottom, topRadius the top)"
+  }
+  check(topDiameter == null || diameter != null) {
+    "topDiameter requires diameter (diameter is the bottom, topDiameter the top)"
+  }
+
+  val args = buildList {
+    add("h = ${height.formatted()}")
+    if (topRadius != null) {
+      add("r1 = ${radius!!.formatted()}")
+      add("r2 = ${topRadius.formatted()}")
     } else if (radius != null) {
-      "cylinder(h = ${height.formatted()}, r = ${radius.formatted()}$segments);"
-    } else {
-      "cylinder(h = ${height.formatted()}, d = ${diameter!!.formatted()}$segments);"
-    },
-  )
+      add("r = ${radius.formatted()}")
+    }
+    if (topDiameter != null) {
+      add("d1 = ${diameter!!.formatted()}")
+      add("d2 = ${topDiameter.formatted()}")
+    } else if (diameter != null) {
+      add("d = ${diameter.formatted()}")
+    }
+    if (center) add("center = true")
+    segments?.let { add("\$fn = $it") }
+  }
+  Line("cylinder(${args.joinToString(", ")});")
 }
