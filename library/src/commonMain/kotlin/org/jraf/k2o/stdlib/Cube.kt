@@ -46,9 +46,9 @@ fun Cube(
   center: Boolean = false,
 ) {
   if (center) {
-    Line("cube([${x.formatted()}, ${y.formatted()}, ${z.formatted()}], center = true);")
+    Line("cube(${Vect(x, y, z)}, center = true);")
   } else {
-    Line("cube([${x.formatted()}, ${y.formatted()}, ${z.formatted()}]);")
+    Line("cube(${Vect(x, y, z)});")
   }
 }
 

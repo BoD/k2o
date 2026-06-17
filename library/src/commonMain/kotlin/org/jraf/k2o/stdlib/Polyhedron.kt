@@ -27,7 +27,6 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.indent
-import org.jraf.k2o.formatting.formatted
 
 /**
  * Creates a 3D [polyhedron](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#polyhedron) from a
@@ -50,7 +49,7 @@ fun Polyhedron(
     Line("points = [")
     indent {
       for ((x, y, z) in points) {
-        Line("[${x.formatted()}, ${y.formatted()}, ${z.formatted()}],")
+        Line("${Vect(x, y, z)},")
       }
     }
     Line("],")

@@ -27,7 +27,6 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
 
 /**
  * [Mirrors](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#mirror) its children across the plane
@@ -45,9 +44,7 @@ fun mirror(
   z: Number = 0,
   content: @Composable () -> Unit,
 ) {
-  Line(
-    "mirror([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])",
-  )
+  Line("mirror(${Vect(x, y, z)})")
   withBraces {
     content()
   }

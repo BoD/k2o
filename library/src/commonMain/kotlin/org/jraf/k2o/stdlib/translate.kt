@@ -27,7 +27,6 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
 
 /**
  * [Translates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#translate) (moves) its children by
@@ -45,9 +44,7 @@ fun translate(
   z: Number = 0,
   content: @Composable () -> Unit,
 ) {
-  Line(
-    "translate([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])",
-  )
+  Line("translate(${Vect(x, y, z)})")
   withBraces {
     content()
   }

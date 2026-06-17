@@ -26,7 +26,6 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.formatting.formatted
 
 /**
  * Creates a 2D [square](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#square) (or rectangle).
@@ -43,8 +42,8 @@ fun Square(
   center: Boolean = false,
 ) {
   if (center) {
-    Line("square([${width.formatted()}, ${height.formatted()}], center = true);")
+    Line("square(${Vect(width, height)}, center = true);")
   } else {
-    Line("square([${width.formatted()}, ${height.formatted()}]);")
+    Line("square(${Vect(width, height)});")
   }
 }

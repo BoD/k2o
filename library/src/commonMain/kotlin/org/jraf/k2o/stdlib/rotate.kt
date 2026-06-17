@@ -45,7 +45,7 @@ fun rotate(
   z: Number = 0,
   content: @Composable () -> Unit,
 ) {
-  Line("rotate([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])")
+  Line("rotate(${Vect(x, y, z)})")
   withBraces {
     content()
   }

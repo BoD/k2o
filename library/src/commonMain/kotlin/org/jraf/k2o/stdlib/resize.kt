@@ -27,7 +27,6 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
 
 /**
  * [Resizes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#resize) its children to the given
@@ -48,9 +47,7 @@ fun resize(
   auto: Boolean,
   content: @Composable () -> Unit,
 ) {
-  Line(
-    "resize([${x.formatted()}, ${y.formatted()}, ${z.formatted()}], auto = $auto)",
-  )
+  Line("resize(${Vect(x, y, z)}, auto = $auto)")
   withBraces {
     content()
   }
