@@ -96,6 +96,10 @@ public final class org/jraf/k2o/stdlib/ImportKt {
 	public static final fun Import (Ljava/lang/String;ZLandroidx/compose/runtime/Composer;II)V
 }
 
+public final class org/jraf/k2o/stdlib/IntersectionKt {
+	public static final fun intersection (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
 public final class org/jraf/k2o/stdlib/LinearExtrudeKt {
 	public static final fun linearExtrude (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 	public static final fun linearExtrude (Ljava/lang/Number;Lorg/jraf/k2o/stdlib/Vect;ZLjava/lang/Number;Ljava/lang/Number;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
@@ -122,6 +126,10 @@ public final class org/jraf/k2o/stdlib/PolyhedronKt {
 	public static final fun Polyhedron (Ljava/util/List;Ljava/util/List;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
 }
 
+public final class org/jraf/k2o/stdlib/ProjectionKt {
+	public static final fun projection (ZLjava/lang/Integer;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
 public final class org/jraf/k2o/stdlib/ResizeKt {
 	public static final fun resize (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
@@ -133,6 +141,10 @@ public final class org/jraf/k2o/stdlib/RotateExtrudeKt {
 public final class org/jraf/k2o/stdlib/RotateKt {
 	public static final fun rotate (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 	public static final fun rotate (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+}
+
+public final class org/jraf/k2o/stdlib/ScaleKt {
+	public static final fun scale (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/SphereKt {
