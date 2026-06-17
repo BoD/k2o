@@ -31,7 +31,11 @@ import androidx.compose.runtime.ControlledComposition
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.Recomposer
 import androidx.compose.runtime.staticCompositionLocalOf
+import kotlinx.io.Buffer
+import kotlinx.io.RawSink
 import kotlinx.io.Sink
+import kotlinx.io.buffered
+import kotlinx.io.readByteArray
 import kotlinx.io.writeString
 import org.jraf.k2o.VERSION
 import org.jraf.k2o.dsl.OpenScad.Element
@@ -172,7 +176,7 @@ fun indent(content: @Composable () -> Unit) {
  * @param content The design to render, expressed with the k2o DSL.
  */
 fun openScad(
-  sink: Sink = defaultSink(),
+  sink: Sink = StdoutSink,
   fa: Double = 0.1,
   fs: Double = 0.1,
   content: @Composable () -> Unit,
@@ -205,4 +209,19 @@ private class NoOpApplier : AbstractApplier<Unit>(Unit) {
  */
 val LocalOpenScad: ProvidableCompositionLocal<OpenScad> = staticCompositionLocalOf { OpenScad() }
 
-internal expect fun defaultSink(): Sink
+internal val StdoutSink: Sink = StdoutRawSink.buffered()
+
+private object StdoutRawSink : RawSink {
+  override fun write(source: Buffer, byteCount: Long) {
+    var remainingByteCount = byteCount
+    while (remainingByteCount > 0) {
+      val bytesToRead = minOf(remainingByteCount, Int.MAX_VALUE.toLong()).toInt()
+      print(source.readByteArray(bytesToRead).decodeToString())
+      remainingByteCount -= bytesToRead
+    }
+  }
+
+  override fun flush() = Unit
+
+  override fun close() = Unit
+}
