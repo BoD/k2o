@@ -7,7 +7,7 @@
  *                              /___/
  * repository.
  *
- * Copyright (C) 2025-present Benoit 'BoD' Lubek (BoD@JRAF.org)
+ * Copyright (C) 2026-present Benoit 'BoD' Lubek (BoD@JRAF.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,43 @@
  * limitations under the License.
  */
 
-package org.jraf.k2o.dsl
+package org.jraf.k2o.stdlib
 
-import kotlinx.io.Sink
-import kotlinx.io.asSink
-import kotlinx.io.buffered
+import org.jraf.k2o.dsl.renderOpenScad
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-internal actual fun defaultSink(): Sink {
-  return System.out.asSink().buffered()
+class RotateTest {
+  @Test
+  fun vectorRotationWrapsContent() {
+    assertEquals(
+      """
+      rotate([90, 0, 45]) {
+        cube(3);
+      }
+      """.trimIndent(),
+      renderOpenScad {
+        rotate(x = 90, z = 45) {
+          Cube(3)
+        }
+      },
+    )
+  }
+
+  @Test
+  fun angleRotationWrapsContent() {
+    assertEquals(
+      """
+      rotate(45) {
+        square([3, 3]);
+      }
+      """.trimIndent(),
+      renderOpenScad {
+        rotate(angle = 45) {
+          Square(3)
+        }
+      },
+    )
+  }
 }
+

@@ -28,15 +28,39 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Indent
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.Unindent
-import org.jraf.k2o.formatting.formatted
 
+/**
+ * Creates a 2D [polygon](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#polygon) from a list of
+ * points, connected in order with the last point joined back to the first.
+ *
+ * @param points The `(x, y)` vertices of the polygon, in order.
+ * @param paths One or more closed paths, each given as a list of indices into [points], in the order they should be
+ * connected. Use this to describe polygons with holes (the first path is the outline, the others are holes). When
+ * `null`, a single path using all points in order is assumed.
+ * @param convexity A hint for the preview renderer, equal to the maximum number of edges a line could cross when
+ * passing through the polygon.
+ */
 @Composable
-fun Polygon(vararg points: Pair<Number, Number>) {
+fun Polygon(
+  vararg points: Pair<Number, Number>,
+  paths: List<List<Int>>? = null,
+  convexity: Int? = null,
+) {
   Line("polygon([")
   Indent()
   for ((x, y) in points) {
-    Line("[${x.formatted()}, ${y.formatted()}],")
+    Line("${Vect(x, y)},")
   }
   Unindent()
-  Line("]);")
+  val trailing = buildString {
+    if (paths != null) {
+      append(", paths = [")
+      append(paths.joinToString(", ") { path -> "[${path.joinToString(", ")}]" })
+      append("]")
+    }
+    if (convexity != null) {
+      append(", convexity = $convexity")
+    }
+  }
+  Line("]$trailing);")
 }

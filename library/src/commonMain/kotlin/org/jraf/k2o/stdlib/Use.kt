@@ -27,7 +27,14 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 
+/**
+ * Emits a [`use`](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Include_Statement) statement, making the modules
+ * and functions defined in another `.scad` file available (without executing its top-level geometry). Combine with
+ * [Call] to invoke the imported modules.
+ *
+ * @param path The path to the `.scad` file to use, relative to the generated file.
+ */
 @Composable
 fun Use(path: String) {
-  Line("use <$path>")
+  Line("use <$path>;")
 }

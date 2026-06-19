@@ -28,6 +28,12 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
+/**
+ * Computes the [Minkowski sum](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#minkowski) of its
+ * children (often used to round edges by summing a shape with a sphere or cylinder).
+ *
+ * @param content The children to sum together.
+ */
 @Composable
 fun minkowski(content: @Composable () -> Unit) {
   Line("minkowski()")

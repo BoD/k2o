@@ -28,6 +28,12 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
+/**
+ * Computes the convex [hull](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#hull) of all its
+ * children.
+ *
+ * @param content The children to wrap in a convex hull.
+ */
 @Composable
 fun hull(content: @Composable () -> Unit) {
   Line("hull()")

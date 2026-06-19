@@ -29,6 +29,15 @@ import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * [Rotates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#rotate) its children around each axis,
+ * in degrees. Rotations are applied around X, then Y, then Z.
+ *
+ * @param x The rotation around the X axis, in degrees.
+ * @param y The rotation around the Y axis, in degrees.
+ * @param z The rotation around the Z axis, in degrees.
+ * @param content The children to rotate.
+ */
 @Composable
 fun rotate(
   x: Number = 0,
@@ -36,12 +45,19 @@ fun rotate(
   z: Number = 0,
   content: @Composable () -> Unit,
 ) {
-  Line("rotate([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])")
+  Line("rotate(${Vect(x, y, z)})")
   withBraces {
     content()
   }
 }
 
+/**
+ * [Rotates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#rotate) its children around the Z axis
+ * by the given angle, in degrees.
+ *
+ * @param angle The rotation around the Z axis, in degrees.
+ * @param content The children to rotate.
+ */
 @Composable
 fun rotate(
   angle: Number,

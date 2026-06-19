@@ -26,12 +26,24 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.formatting.formatted
 
+/**
+ * Creates a 2D [square](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#square) (or rectangle).
+ *
+ * @param width The size along the X axis.
+ * @param height The size along the Y axis. Defaults to [width], producing a square.
+ * @param center When `false` (the default), the square is placed in the first quadrant, with one corner at the
+ * origin. When `true`, it is centered on the origin.
+ */
 @Composable
 fun Square(
   width: Number,
   height: Number = width,
+  center: Boolean = false,
 ) {
-  Line("square([${width.formatted()}, ${height.formatted()}]);")
+  if (center) {
+    Line("square(${Vect(width, height)}, center = true);")
+  } else {
+    Line("square(${Vect(width, height)});")
+  }
 }

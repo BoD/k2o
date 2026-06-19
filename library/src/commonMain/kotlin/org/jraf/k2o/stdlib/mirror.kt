@@ -27,8 +27,16 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
 
+/**
+ * [Mirrors](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#mirror) its children across the plane
+ * through the origin whose normal is the vector `(x, y, z)`.
+ *
+ * @param x The X component of the mirror plane's normal vector.
+ * @param y The Y component of the mirror plane's normal vector.
+ * @param z The Z component of the mirror plane's normal vector.
+ * @param content The children to mirror.
+ */
 @Composable
 fun mirror(
   x: Number = 0,
@@ -36,9 +44,7 @@ fun mirror(
   z: Number = 0,
   content: @Composable () -> Unit,
 ) {
-  Line(
-    "mirror([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])",
-  )
+  Line("mirror(${Vect(x, y, z)})")
   withBraces {
     content()
   }

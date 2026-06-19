@@ -50,7 +50,7 @@ private fun Base(
   thickness: Int,
   indentWidth: Int,
 ) {
-  color(Color.GREEN) {
+  color(Color.Green) {
     difference {
       Cylinder(height = thickness, radius = width / 2)
 
@@ -159,7 +159,10 @@ private fun MugBooster() {
 }
 
 fun main() {
-  openScad {
+  openScad(
+    fa = 0.1,
+    fs = 0.1,
+  ) {
     MugBooster()
   }
 }

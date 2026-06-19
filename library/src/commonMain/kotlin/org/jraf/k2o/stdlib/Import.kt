@@ -27,7 +27,15 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 
+/**
+ * [Imports](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Importing_Geometry#import) geometry from an external
+ * file (such as an STL, OFF, SVG or DXF) as an object.
+ *
+ * @param path The path to the file to import, either relative to the generated `.scad` file, or absolute.
+ * @param center When `true`, the imported geometry is centered on the origin; when `false` (the default), its original
+ * coordinates are kept.
+ */
 @Composable
-fun Import(path: String, center: Boolean) {
-  Line("import(\"$path\", center = $center);")
+fun Import(path: String, center: Boolean = false) {
+  Line("import(\"$path\"${if (center) ", center = true" else ""});")
 }

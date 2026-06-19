@@ -26,11 +26,18 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.dsl.Text
+import org.jraf.k2o.dsl.RawText
 import org.jraf.k2o.dsl.indent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * [Linear-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#linear_extrude) a 2D shape
+ * straight up the Z axis into a 3D solid of the given height.
+ *
+ * @param height The height of the extrusion along the Z axis.
+ * @param content The 2D children to extrude.
+ */
 @Composable
 fun linearExtrude(
   height: Number,
@@ -42,11 +49,29 @@ fun linearExtrude(
   }
 }
 
+/**
+ * [Linear-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#linear_extrude) a 2D shape
+ * into a 3D solid, with full control over twisting, scaling and resolution.
+ *
+ * @param height The height of the extrusion: how far the shape travels along [direction].
+ * @param direction The direction in which the shape is extruded, as a vector. When `null`, the shape is extruded
+ * straight up the Z axis. Only the direction of the vector matters: its length is ignored, since [height] is what sets
+ * how far the shape travels.
+ * @param center When `false` (the default), the solid grows up from the XY plane. When `true`, it is centered on the
+ * plane.
+ * @param twist The total rotation, in degrees, applied from bottom to top.
+ * @param scale The scale factor applied to the top face (`1` keeps the original size).
+ * @param slices The number of intermediate layers, mainly relevant when [twist] is used.
+ * @param segments The number of fragments (OpenSCAD's `$fn`) used for the extrusion.
+ * @param convexity A hint for the preview renderer, equal to the maximum number of faces a ray crosses through the
+ * solid.
+ * @param content The 2D children to extrude.
+ */
 @Composable
 fun linearExtrude(
   height: Number,
-  v: Vect? = null,
-  center: Boolean? = null,
+  direction: Vect? = null,
+  center: Boolean = false,
   twist: Number? = null,
   scale: Number? = null,
   slices: Int? = null,
@@ -57,32 +82,32 @@ fun linearExtrude(
   Line("linear_extrude(")
   indent {
     Line("height = ${height.formatted()}")
-    v?.let {
-      Text(",")
+    direction?.let {
+      RawText(",")
       Line("v = $it")
     }
-    center?.let {
-      Text(",")
-      Line("center = $it")
+    if (center) {
+      RawText(",")
+      Line("center = true")
     }
     twist?.let {
-      Text(",")
+      RawText(",")
       Line("twist = ${it.formatted()}")
     }
     scale?.let {
-      Text(",")
+      RawText(",")
       Line("scale = ${it.formatted()}")
     }
     slices?.let {
-      Text(",")
+      RawText(",")
       Line("slices = $it")
     }
     segments?.let {
-      Text(",")
+      RawText(",")
       Line("segments = $it")
     }
     convexity?.let {
-      Text(",")
+      RawText(",")
       Line("convexity = $it")
     }
   }

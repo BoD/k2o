@@ -27,8 +27,18 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
 
+/**
+ * [Resizes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#resize) its children to the given
+ * bounding-box dimensions. A dimension of `0` leaves that axis unchanged (or auto-scales it, see [auto]).
+ *
+ * @param x The target size along the X axis, or `0` to leave it untouched.
+ * @param y The target size along the Y axis, or `0` to leave it untouched.
+ * @param z The target size along the Z axis, or `0` to leave it untouched.
+ * @param auto When `true`, axes left at `0` are scaled by the same factor as the non-zero axes instead of being kept
+ * at their original size.
+ * @param content The children to resize.
+ */
 @Composable
 fun resize(
   x: Number = 0,
@@ -37,9 +47,7 @@ fun resize(
   auto: Boolean,
   content: @Composable () -> Unit,
 ) {
-  Line(
-    "resize([${x.formatted()}, ${y.formatted()}, ${z.formatted()}], auto = $auto)",
-  )
+  Line("resize(${Vect(x, y, z)}, auto = $auto)")
   withBraces {
     content()
   }

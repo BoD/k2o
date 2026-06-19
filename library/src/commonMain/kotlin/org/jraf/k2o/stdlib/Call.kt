@@ -31,6 +31,18 @@ import org.jraf.k2o.dsl.Unindent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * Calls an arbitrary OpenSCAD module by name with named arguments. Use this as an escape hatch to invoke modules that
+ * k2o does not provide a dedicated function for, for example modules brought in via [Use] or [Import].
+ *
+ * Each argument value is rendered according to its runtime type: [String] values are quoted, [Number] values are
+ * formatted, and anything else falls back to its `toString()`.
+ *
+ * @param module The name of the OpenSCAD module to call.
+ * @param args The named arguments to pass, as `name to value` pairs.
+ * @param content Optional children to nest inside the call's block. When `null`, the call is emitted as a plain
+ * statement.
+ */
 @Composable
 fun Call(module: String, vararg args: Pair<String, Any>, content: (@Composable () -> Unit)? = null) {
   Line("$module(")

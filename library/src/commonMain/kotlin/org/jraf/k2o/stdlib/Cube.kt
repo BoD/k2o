@@ -28,6 +28,16 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * Creates a [cube](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#cube) (a box) with the
+ * given dimensions.
+ *
+ * @param x The size along the X axis.
+ * @param y The size along the Y axis.
+ * @param z The size along the Z axis.
+ * @param center When `false` (the default), the cube is placed in the first octant, with one corner at the origin.
+ * When `true`, it is centered on the origin.
+ */
 @Composable
 fun Cube(
   x: Number,
@@ -36,12 +46,20 @@ fun Cube(
   center: Boolean = false,
 ) {
   if (center) {
-    Line("cube([${x.formatted()}, ${y.formatted()}, ${z.formatted()}], center = true);")
+    Line("cube(${Vect(x, y, z)}, center = true);")
   } else {
-    Line("cube([${x.formatted()}, ${y.formatted()}, ${z.formatted()}]);")
+    Line("cube(${Vect(x, y, z)});")
   }
 }
 
+/**
+ * Creates a [cube](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#cube) with the same size on
+ * all three axes.
+ *
+ * @param size The size along the X, Y and Z axes.
+ * @param center When `false` (the default), the cube is placed in the first octant, with one corner at the origin.
+ * When `true`, it is centered on the origin.
+ */
 @Composable
 fun Cube(size: Number, center: Boolean = false) {
   if (center) {

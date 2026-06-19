@@ -29,17 +29,32 @@ import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
+/**
+ * [Offsets](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#offset) a 2D shape by a radius,
+ * growing it (positive [radius]) or shrinking it (negative [radius]) with rounded corners.
+ *
+ * @param radius The radius to offset by. Positive grows the shape, negative shrinks it.
+ * @param content The 2D children to offset.
+ */
 @Composable
 fun offset(
-  r: Number,
+  radius: Number,
   content: @Composable () -> Unit,
 ) {
-  Line("offset(r = ${r.formatted()})")
+  Line("offset(r = ${radius.formatted()})")
   withBraces {
     content()
   }
 }
 
+/**
+ * [Offsets](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#offset) a 2D shape by a constant
+ * distance, keeping sharp corners by default.
+ *
+ * @param delta The distance to offset by. Positive grows the shape, negative shrinks it.
+ * @param chamfer When `true`, outer corners are chamfered (cut off) instead of kept sharp.
+ * @param content The 2D children to offset.
+ */
 @Composable
 fun offset(
   delta: Number,

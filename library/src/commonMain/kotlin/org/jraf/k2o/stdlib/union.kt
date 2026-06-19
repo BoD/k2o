@@ -28,6 +28,12 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
+/**
+ * Combines all children into a single object, producing the boolean
+ * [union](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/CSG_Modelling#union).
+ *
+ * @param content The children to merge together.
+ */
 @Composable
 fun union(content: @Composable () -> Unit) {
   Line("union()")

@@ -28,6 +28,12 @@ import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
 
+/**
+ * Subtracts the second and all following children from the first, producing the boolean
+ * [difference](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/CSG_Modelling#difference).
+ *
+ * @param content The children: the first is kept, the rest are removed from it.
+ */
 @Composable
 fun difference(content: @Composable () -> Unit) {
   Line("difference()")
