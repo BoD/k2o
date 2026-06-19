@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":k2o/commonMain":[],":k2o/jvmMain":[":k2o/commonMain"]}'
+sourceset_dependencies = '{":k2o/appleMain":[":k2o/nativeMain"],":k2o/commonMain":[],":k2o/jvmMain":[":k2o/commonMain"],":k2o/macosArm64Main":[":k2o/macosMain"],":k2o/macosMain":[":k2o/appleMain"],":k2o/nativeMain":[":k2o/commonMain"]}'
