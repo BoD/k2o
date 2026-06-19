@@ -3,22 +3,22 @@
   <groupId>org.jraf.k2o</groupId>
   <artifactId>kdoc</artifactId>
   <versioning>
-    <lastUpdated>20260619134742</lastUpdated>
+    <lastUpdated>20260619135629</lastUpdated>
     <snapshot>
-      <timestamp>20260619.134742</timestamp>
+      <timestamp>20260619.135629</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
-        <value>1.3.1-20260619.134742-1</value>
-        <updated>20260619134742</updated>
+        <value>1.3.1-20260619.135629-1</value>
+        <updated>20260619135629</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.3.1-20260619.134742-1</value>
-        <updated>20260619134742</updated>
+        <value>1.3.1-20260619.135629-1</value>
+        <updated>20260619135629</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
