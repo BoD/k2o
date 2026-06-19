@@ -23,8 +23,10 @@ public final class org/jraf/k2o/dsl/OpenScadKt {
 	public static final fun Unindent (Landroidx/compose/runtime/Composer;I)V
 	public static final fun getLocalOpenScad ()Landroidx/compose/runtime/ProvidableCompositionLocal;
 	public static final fun indent (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
-	public static final fun openScad (Lkotlinx/io/Sink;DDLkotlin/jvm/functions/Function2;)V
-	public static synthetic fun openScad$default (Lkotlinx/io/Sink;DDLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V
+	public static final fun openScad (Lkotlinx/io/Sink;Ljava/lang/Double;Ljava/lang/Double;ZLkotlin/jvm/functions/Function2;)V
+	public static synthetic fun openScad$default (Lkotlinx/io/Sink;Ljava/lang/Double;Ljava/lang/Double;ZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)V
+	public static final fun renderOpenScad (Ljava/lang/Double;Ljava/lang/Double;ZLkotlin/jvm/functions/Function2;)Ljava/lang/String;
+	public static synthetic fun renderOpenScad$default (Ljava/lang/Double;Ljava/lang/Double;ZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/lang/String;
 	public static final fun withBraces (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 }
 
