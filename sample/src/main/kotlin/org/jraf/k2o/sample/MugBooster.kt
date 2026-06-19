@@ -159,7 +159,10 @@ private fun MugBooster() {
 }
 
 fun main() {
-  openScad {
+  openScad(
+    fa = 0.1,
+    fs = 0.1,
+  ) {
     MugBooster()
   }
 }
