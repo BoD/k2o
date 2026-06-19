@@ -1,0 +1,144 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../k2o/1.3.1-SNAPSHOT/k2o-1.3.1-SNAPSHOT.module",
+    "group": "org.jraf.k2o",
+    "module": "k2o",
+    "version": "1.3.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.11.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.9.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-jvm-1.3.1-SNAPSHOT.jar",
+          "url": "k2o-jvm-1.3.1-SNAPSHOT.jar",
+          "size": 102687,
+          "sha512": "8916dc6e206a8b83a09675484abbf9db2aa601b35fe20d1d23ad02dd4f75edc6e2eaa5bf3f78c86a0dc32b86f72b8b739c630cb88bcca342f6075695230c3e24",
+          "sha256": "ae48878c86717fb9dd9da7f0ee72fe9137858933040f7a771c475388fc5c93e6",
+          "sha1": "10499cf81c092a7874d8b05057c400a77dac6ffe",
+          "md5": "25ca85128d1b1c0dce21b791177066b6"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.11.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.9.0"
+          }
+        },
+        {
+          "group": "androidx.collection",
+          "module": "collection",
+          "version": {
+            "requires": "1.6.0"
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-jvm-1.3.1-SNAPSHOT.jar",
+          "url": "k2o-jvm-1.3.1-SNAPSHOT.jar",
+          "size": 102687,
+          "sha512": "8916dc6e206a8b83a09675484abbf9db2aa601b35fe20d1d23ad02dd4f75edc6e2eaa5bf3f78c86a0dc32b86f72b8b739c630cb88bcca342f6075695230c3e24",
+          "sha256": "ae48878c86717fb9dd9da7f0ee72fe9137858933040f7a771c475388fc5c93e6",
+          "sha1": "10499cf81c092a7874d8b05057c400a77dac6ffe",
+          "md5": "25ca85128d1b1c0dce21b791177066b6"
+        }
+      ]
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "k2o-jvm-1.3.1-SNAPSHOT-sources.jar",
+          "url": "k2o-jvm-1.3.1-SNAPSHOT-sources.jar",
+          "size": 38324,
+          "sha512": "577be50388d6a3a55a89ada481578fbb6835f4a1edd2bd511500006591398884f9cbfc3395d1af191f28e3ceacfafd7a09a38d36e495e546b26b4c5e16b5e362",
+          "sha256": "2f409b7511b7be898bac9f08e6d9581b4f2a1e2f6fba280e10f14312c2410edf",
+          "sha1": "0ba8aa285551287145eb12ac56206c7426db2f9c",
+          "md5": "acfcb8081a2ab410bb532a74855fdca4"
+        }
+      ]
+    }
+  ]
+}
