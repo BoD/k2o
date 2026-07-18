@@ -3,10 +3,11 @@
   <groupId>org.jraf.k2o</groupId>
   <artifactId>kdoc</artifactId>
   <versioning>
-    <latest>1.3.1-SNAPSHOT</latest>
+    <latest>1.3.1</latest>
+    <release>1.3.1</release>
     <versions>
-      <version>1.3.1-SNAPSHOT</version>
+      <version>1.3.1</version>
     </versions>
-    <lastUpdated>20260619135754</lastUpdated>
+    <lastUpdated>20260718081804</lastUpdated>
   </versioning>
 </metadata>
