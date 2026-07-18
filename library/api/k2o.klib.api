@@ -47,15 +47,7 @@ final enum class org.jraf.k2o.stdlib/TextVerticalAlignment : kotlin/Enum<org.jra
 final class org.jraf.k2o.dsl/OpenScad { // org.jraf.k2o.dsl/OpenScad|null[0]
     constructor <init>() // org.jraf.k2o.dsl/OpenScad.<init>|<init>(){}[0]
 
-    final fun add(org.jraf.k2o.dsl/OpenScad.Element) // org.jraf.k2o.dsl/OpenScad.add|add(org.jraf.k2o.dsl.OpenScad.Element){}[0]
     final fun write(kotlinx.io/Sink) // org.jraf.k2o.dsl/OpenScad.write|write(kotlinx.io.Sink){}[0]
-
-    abstract interface Element { // org.jraf.k2o.dsl/OpenScad.Element|null[0]
-        abstract val content // org.jraf.k2o.dsl/OpenScad.Element.content|{}content[0]
-            abstract fun <get-content>(): kotlin/String // org.jraf.k2o.dsl/OpenScad.Element.content.<get-content>|<get-content>(){}[0]
-    }
-
-    abstract interface NewLineElement : org.jraf.k2o.dsl/OpenScad.Element // org.jraf.k2o.dsl/OpenScad.NewLineElement|null[0]
 }
 
 final class org.jraf.k2o.stdlib/Color { // org.jraf.k2o.stdlib/Color|null[0]
@@ -111,19 +103,25 @@ final class org.jraf.k2o.stdlib/Vect { // org.jraf.k2o.stdlib/Vect|null[0]
 final val org.jraf.k2o.dsl/LocalOpenScad // org.jraf.k2o.dsl/LocalOpenScad|{}LocalOpenScad[0]
     final fun <get-LocalOpenScad>(): androidx.compose.runtime/ProvidableCompositionLocal<org.jraf.k2o.dsl/OpenScad> // org.jraf.k2o.dsl/LocalOpenScad.<get-LocalOpenScad>|<get-LocalOpenScad>(){}[0]
 final val org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad$stableprop // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad$stableprop|#static{}org_jraf_k2o_dsl_OpenScad$stableprop[0]
+final val org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Indent$stableprop // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Indent$stableprop|#static{}org_jraf_k2o_dsl_OpenScad_Element_Indent$stableprop[0]
+final val org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_LineElement$stableprop // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_LineElement$stableprop|#static{}org_jraf_k2o_dsl_OpenScad_Element_LineElement$stableprop[0]
+final val org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_RawTextElement$stableprop // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_RawTextElement$stableprop|#static{}org_jraf_k2o_dsl_OpenScad_Element_RawTextElement$stableprop[0]
+final val org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Unindent$stableprop // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Unindent$stableprop|#static{}org_jraf_k2o_dsl_OpenScad_Element_Unindent$stableprop[0]
 final val org.jraf.k2o.stdlib/org_jraf_k2o_stdlib_Color$stableprop // org.jraf.k2o.stdlib/org_jraf_k2o_stdlib_Color$stableprop|#static{}org_jraf_k2o_stdlib_Color$stableprop[0]
 final val org.jraf.k2o.stdlib/org_jraf_k2o_stdlib_Vect$stableprop // org.jraf.k2o.stdlib/org_jraf_k2o_stdlib_Vect$stableprop|#static{}org_jraf_k2o_stdlib_Vect$stableprop[0]
 final val org.jraf.k2o/VERSION // org.jraf.k2o/VERSION|{}VERSION[0]
     final fun <get-VERSION>(): kotlin/String // org.jraf.k2o/VERSION.<get-VERSION>|<get-VERSION>(){}[0]
 
 final fun (kotlin/Number).org.jraf.k2o.formatting/formatted(): kotlin/String // org.jraf.k2o.formatting/formatted|formatted@kotlin.Number(){}[0]
-final fun org.jraf.k2o.dsl/Indent(androidx.compose.runtime/Composer?, kotlin/Int) // org.jraf.k2o.dsl/Indent|Indent(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun org.jraf.k2o.dsl/Line(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // org.jraf.k2o.dsl/Line|Line(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun org.jraf.k2o.dsl/RawText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // org.jraf.k2o.dsl/RawText|RawText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
-final fun org.jraf.k2o.dsl/Unindent(androidx.compose.runtime/Composer?, kotlin/Int) // org.jraf.k2o.dsl/Unindent|Unindent(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun org.jraf.k2o.dsl/indent(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // org.jraf.k2o.dsl/indent|indent(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun org.jraf.k2o.dsl/openScad(kotlinx.io/Sink = ..., kotlin/Double? = ..., kotlin/Double? = ..., kotlin/Boolean = ..., kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // org.jraf.k2o.dsl/openScad|openScad(kotlinx.io.Sink;kotlin.Double?;kotlin.Double?;kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
 final fun org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad$stableprop_getter(): kotlin/Int // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad$stableprop_getter|org_jraf_k2o_dsl_OpenScad$stableprop_getter(){}[0]
+final fun org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Indent$stableprop_getter(): kotlin/Int // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Indent$stableprop_getter|org_jraf_k2o_dsl_OpenScad_Element_Indent$stableprop_getter(){}[0]
+final fun org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_LineElement$stableprop_getter(): kotlin/Int // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_LineElement$stableprop_getter|org_jraf_k2o_dsl_OpenScad_Element_LineElement$stableprop_getter(){}[0]
+final fun org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_RawTextElement$stableprop_getter(): kotlin/Int // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_RawTextElement$stableprop_getter|org_jraf_k2o_dsl_OpenScad_Element_RawTextElement$stableprop_getter(){}[0]
+final fun org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Unindent$stableprop_getter(): kotlin/Int // org.jraf.k2o.dsl/org_jraf_k2o_dsl_OpenScad_Element_Unindent$stableprop_getter|org_jraf_k2o_dsl_OpenScad_Element_Unindent$stableprop_getter(){}[0]
 final fun org.jraf.k2o.dsl/renderOpenScad(kotlin/Double? = ..., kotlin/Double? = ..., kotlin/Boolean = ..., kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>): kotlin/String // org.jraf.k2o.dsl/renderOpenScad|renderOpenScad(kotlin.Double?;kotlin.Double?;kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
 final fun org.jraf.k2o.dsl/withBraces(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // org.jraf.k2o.dsl/withBraces|withBraces(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun org.jraf.k2o.math/atan(kotlin/Number): kotlin/Double // org.jraf.k2o.math/atan|atan(kotlin.Number){}[0]

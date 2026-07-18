@@ -39,8 +39,10 @@ import kotlinx.io.readByteArray
 import kotlinx.io.readString
 import kotlinx.io.writeString
 import org.jraf.k2o.VERSION
-import org.jraf.k2o.dsl.OpenScad.Element
-import org.jraf.k2o.dsl.OpenScad.NewLineElement
+import org.jraf.k2o.dsl.OpenScad.Element.Indent
+import org.jraf.k2o.dsl.OpenScad.Element.LineElement
+import org.jraf.k2o.dsl.OpenScad.Element.RawTextElement
+import org.jraf.k2o.dsl.OpenScad.Element.Unindent
 import org.jraf.k2o.formatting.formatted
 import org.jraf.k2o.stdlib.Comment
 import kotlin.coroutines.EmptyCoroutineContext
@@ -55,7 +57,7 @@ class OpenScad {
   private val elements = mutableListOf<Element>()
 
   /** Appends a raw [element] to the output being built. */
-  fun add(element: Element) {
+  internal fun add(element: Element) {
     elements.add(element)
   }
 
@@ -64,59 +66,35 @@ class OpenScad {
     var indent = 0
     for ((i, element) in elements.withIndex()) {
       when (element) {
-        is Indent -> indent++
-        is Unindent -> indent--
-      }
-      check(indent >= 0) { "Tried to unindent more than indented" }
-      if (element is NewLineElement && i > 0) {
-        sink.writeString("\n")
-        repeat(indent) {
-          sink.writeString("  ")
+        Indent -> indent++
+        Unindent -> indent--
+
+        is LineElement -> {
+          if (i > 0) {
+            sink.writeString("\n")
+            check(indent >= 0) { "Tried to unindent more than indented" }
+            repeat(indent) {
+              sink.writeString("  ")
+            }
+          }
+          sink.writeString(element.content)
+        }
+
+        is RawTextElement -> {
+          sink.writeString(element.content)
         }
       }
-      sink.writeString(element.content)
     }
   }
 
-  interface Element {
-    val content: String
+  internal sealed interface Element {
+    object Indent : Element
+    object Unindent : Element
+    class RawTextElement(val content: String) : Element
+    class LineElement(val content: String) : Element
   }
-
-  /**
-   * Marker interface for elements that will start a new line when written.
-   */
-  interface NewLineElement : Element
 }
 
-private object Indent : Element {
-  // No content, just a marker for indentation
-  override val content = ""
-}
-
-/**
- * Increases the indentation level of everything emitted afterwards by one, until a matching [Unindent]. Low-level
- * building block, mostly useful when writing custom DSL functions.
- */
-@Composable
-fun Indent() {
-  LocalOpenScad.current.add(Indent)
-}
-
-private object Unindent : Element {
-  // No output, just a marker for unindenting
-  override val content = ""
-}
-
-/**
- * Decreases the indentation level by one, undoing a previous [Indent]. Low-level building block, mostly useful when
- * writing custom DSL functions.
- */
-@Composable
-fun Unindent() {
-  LocalOpenScad.current.add(Unindent)
-}
-
-private class TextElement(override val content: String) : Element
 
 /**
  * Appends raw [content] to the current line, without starting a new one. Low-level building block; prefer [Line] to
@@ -124,10 +102,9 @@ private class TextElement(override val content: String) : Element
  */
 @Composable
 fun RawText(content: String) {
-  LocalOpenScad.current.add(TextElement(content))
+  LocalOpenScad.current.add(RawTextElement(content))
 }
 
-private class LineElement(override val content: String) : NewLineElement
 
 /**
  * Emits [content] on a new line, indented at the current level. This is the main building block for writing custom
@@ -144,13 +121,11 @@ fun Line(content: String) {
  */
 @Composable
 fun withBraces(content: @Composable () -> Unit) {
-  with(LocalOpenScad.current) {
-    RawText(" {")
-    indent {
-      content()
-    }
-    Line("}")
+  RawText(" {")
+  indent {
+    content()
   }
+  Line("}")
 }
 
 /**
@@ -159,9 +134,9 @@ fun withBraces(content: @Composable () -> Unit) {
 @Composable
 fun indent(content: @Composable () -> Unit) {
   with(LocalOpenScad.current) {
-    Indent()
+    add(Indent)
     content()
-    Unindent()
+    add(Unindent)
   }
 }
 

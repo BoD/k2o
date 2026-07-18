@@ -25,9 +25,8 @@
 package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
-import org.jraf.k2o.dsl.Indent
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.dsl.Unindent
+import org.jraf.k2o.dsl.indent
 
 /**
  * Creates a 2D [polygon](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#polygon) from a list of
@@ -47,11 +46,11 @@ fun Polygon(
   convexity: Int? = null,
 ) {
   Line("polygon([")
-  Indent()
-  for ((x, y) in points) {
-    Line("${Vect(x, y)},")
+  indent {
+    for ((x, y) in points) {
+      Line("${Vect(x, y)},")
+    }
   }
-  Unindent()
   val trailing = buildString {
     if (paths != null) {
       append(", paths = [")

@@ -25,9 +25,8 @@
 package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
-import org.jraf.k2o.dsl.Indent
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.dsl.Unindent
+import org.jraf.k2o.dsl.indent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
 
@@ -46,16 +45,16 @@ import org.jraf.k2o.formatting.formatted
 @Composable
 fun Call(module: String, vararg args: Pair<String, Any>, content: (@Composable () -> Unit)? = null) {
   Line("$module(")
-  Indent()
-  for ((name, value) in args) {
-    val v = when (value) {
-      is String -> "\"$value\""
-      is Number -> value.formatted()
-      else -> value.toString()
+  indent {
+    for ((name, value) in args) {
+      val v = when (value) {
+        is String -> "\"$value\""
+        is Number -> value.formatted()
+        else -> value.toString()
+      }
+      Line("$name = $v,")
     }
-    Line("$name = $v,")
   }
-  Unindent()
   if (content != null) {
     Line(")")
     withBraces {

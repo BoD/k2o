@@ -5,22 +5,12 @@ public final class org/jraf/k2o/VersionKt {
 public final class org/jraf/k2o/dsl/OpenScad {
 	public static final field $stable I
 	public fun <init> ()V
-	public final fun add (Lorg/jraf/k2o/dsl/OpenScad$Element;)V
 	public final fun write (Lkotlinx/io/Sink;)V
 }
 
-public abstract interface class org/jraf/k2o/dsl/OpenScad$Element {
-	public abstract fun getContent ()Ljava/lang/String;
-}
-
-public abstract interface class org/jraf/k2o/dsl/OpenScad$NewLineElement : org/jraf/k2o/dsl/OpenScad$Element {
-}
-
 public final class org/jraf/k2o/dsl/OpenScadKt {
-	public static final fun Indent (Landroidx/compose/runtime/Composer;I)V
 	public static final fun Line (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
 	public static final fun RawText (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
-	public static final fun Unindent (Landroidx/compose/runtime/Composer;I)V
 	public static final fun getLocalOpenScad ()Landroidx/compose/runtime/ProvidableCompositionLocal;
 	public static final fun indent (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 	public static final fun openScad (Lkotlinx/io/Sink;Ljava/lang/Double;Ljava/lang/Double;ZLkotlin/jvm/functions/Function2;)V
