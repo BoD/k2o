@@ -3,10 +3,10 @@
   <groupId>org.jraf.k2o</groupId>
   <artifactId>k2o-macosarm64</artifactId>
   <versioning>
-    <latest>1.3.2-SNAPSHOT</latest>
+    <latest>1.4.0-SNAPSHOT</latest>
     <versions>
-      <version>1.3.2-SNAPSHOT</version>
+      <version>1.4.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20260718082019</lastUpdated>
+    <lastUpdated>20260913181310</lastUpdated>
   </versioning>
 </metadata>

@@ -4,6 +4,6 @@ $dokka.linkExtension:html
 module:k2o
 org.jraf.k2o
 org.jraf.k2o.dsl
-org.jraf.k2o.formatting
 org.jraf.k2o.math
 org.jraf.k2o.stdlib
+org.jraf.k2o.units
