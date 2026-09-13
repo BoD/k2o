@@ -20,16 +20,10 @@ public final class org/jraf/k2o/dsl/OpenScadKt {
 	public static final fun withBraces (Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 }
 
-public final class org/jraf/k2o/formatting/NumbersKt {
-	public static final fun formatted (Ljava/lang/Number;)Ljava/lang/String;
-}
-
 public final class org/jraf/k2o/math/TrigKt {
 	public static final fun atan (Ljava/lang/Number;)D
-	public static final fun cos (Ljava/lang/Number;)D
-	public static final fun degreesToRadians (Ljava/lang/Number;)D
-	public static final fun radiansToDegrees (Ljava/lang/Number;)D
-	public static final fun sin (Ljava/lang/Number;)D
+	public static final fun cos-7JEjXpw (D)Ljava/lang/Number;
+	public static final fun sin-7JEjXpw (D)Ljava/lang/Number;
 }
 
 public final class org/jraf/k2o/stdlib/CallKt {
@@ -37,7 +31,7 @@ public final class org/jraf/k2o/stdlib/CallKt {
 }
 
 public final class org/jraf/k2o/stdlib/CircleKt {
-	public static final fun Circle (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Circle-fzBpGmI (Lorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/Color {
@@ -68,12 +62,12 @@ public final class org/jraf/k2o/stdlib/CommentKt {
 }
 
 public final class org/jraf/k2o/stdlib/CubeKt {
-	public static final fun Cube (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ZLandroidx/compose/runtime/Composer;II)V
-	public static final fun Cube (Ljava/lang/Number;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun Cube-Csioi5k (DZLandroidx/compose/runtime/Composer;II)V
+	public static final fun Cube-flbsoNw (DDDZLandroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/CylinderKt {
-	public static final fun Cylinder (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ZLjava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Cylinder-AkMWuJk (DLorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;ZLjava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/DifferenceKt {
@@ -93,8 +87,8 @@ public final class org/jraf/k2o/stdlib/IntersectionKt {
 }
 
 public final class org/jraf/k2o/stdlib/LinearExtrudeKt {
-	public static final fun linearExtrude (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
-	public static final fun linearExtrude (Ljava/lang/Number;Lorg/jraf/k2o/stdlib/Vect;ZLjava/lang/Number;Ljava/lang/Number;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun linearExtrude-GE5-y4I (DLorg/jraf/k2o/stdlib/Vect;ZLorg/jraf/k2o/units/Angle;Ljava/lang/Number;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun linearExtrude-gXo_cWs (DLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class org/jraf/k2o/stdlib/MinkowskiKt {
@@ -106,8 +100,8 @@ public final class org/jraf/k2o/stdlib/MirrorKt {
 }
 
 public final class org/jraf/k2o/stdlib/OffsetKt {
-	public static final fun offset (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
-	public static final fun offset (Ljava/lang/Number;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun offset-Z2K52TY (DZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun offset-gXo_cWs (DLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class org/jraf/k2o/stdlib/PolygonKt {
@@ -123,16 +117,16 @@ public final class org/jraf/k2o/stdlib/ProjectionKt {
 }
 
 public final class org/jraf/k2o/stdlib/ResizeKt {
-	public static final fun resize (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun resize-DRVYilA (DDDZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/RotateExtrudeKt {
-	public static final fun rotateExtrude (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun rotateExtrude-8NTqUy4 (DLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/RotateKt {
-	public static final fun rotate (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
-	public static final fun rotate (Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun rotate-AmSCL54 (DDDLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun rotate-tm9RGyI (DLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class org/jraf/k2o/stdlib/ScaleKt {
@@ -140,11 +134,11 @@ public final class org/jraf/k2o/stdlib/ScaleKt {
 }
 
 public final class org/jraf/k2o/stdlib/SphereKt {
-	public static final fun Sphere (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Sphere-fzBpGmI (Lorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/SquareKt {
-	public static final fun Square (Ljava/lang/Number;Ljava/lang/Number;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun Square-CAeY8lA (DDZLandroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/TextDirection : java/lang/Enum {
@@ -167,7 +161,7 @@ public final class org/jraf/k2o/stdlib/TextHorizontalAlignment : java/lang/Enum 
 }
 
 public final class org/jraf/k2o/stdlib/TextKt {
-	public static final fun Text (Ljava/lang/String;Ljava/lang/Number;Ljava/lang/String;Lorg/jraf/k2o/stdlib/TextHorizontalAlignment;Lorg/jraf/k2o/stdlib/TextVerticalAlignment;Ljava/lang/Number;Lorg/jraf/k2o/stdlib/TextDirection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Text-yAmj_hg (Ljava/lang/String;Lorg/jraf/k2o/units/Length;Ljava/lang/String;Lorg/jraf/k2o/stdlib/TextHorizontalAlignment;Lorg/jraf/k2o/stdlib/TextVerticalAlignment;Ljava/lang/Number;Lorg/jraf/k2o/stdlib/TextDirection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/TextVerticalAlignment : java/lang/Enum {
@@ -181,7 +175,7 @@ public final class org/jraf/k2o/stdlib/TextVerticalAlignment : java/lang/Enum {
 }
 
 public final class org/jraf/k2o/stdlib/TranslateKt {
-	public static final fun translate (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+	public static final fun translate-flbsoNw (DDDLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class org/jraf/k2o/stdlib/UnionKt {
@@ -195,22 +189,93 @@ public final class org/jraf/k2o/stdlib/UseKt {
 public final class org/jraf/k2o/stdlib/Vect {
 	public static final field $stable I
 	public static final field Companion Lorg/jraf/k2o/stdlib/Vect$Companion;
-	public fun <init> (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;)V
-	public synthetic fun <init> (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun component1 ()Ljava/lang/Number;
-	public final fun component2 ()Ljava/lang/Number;
-	public final fun component3 ()Ljava/lang/Number;
-	public final fun copy (Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;)Lorg/jraf/k2o/stdlib/Vect;
-	public static synthetic fun copy$default (Lorg/jraf/k2o/stdlib/Vect;Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;ILjava/lang/Object;)Lorg/jraf/k2o/stdlib/Vect;
+	public synthetic fun <init> (DLorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (DLorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-TF7tof8 ()D
+	public final fun component2-4NnNWHc ()Lorg/jraf/k2o/units/Length;
+	public final fun component3-4NnNWHc ()Lorg/jraf/k2o/units/Length;
+	public final fun copy-crN0McA (DLorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;)Lorg/jraf/k2o/stdlib/Vect;
+	public static synthetic fun copy-crN0McA$default (Lorg/jraf/k2o/stdlib/Vect;DLorg/jraf/k2o/units/Length;Lorg/jraf/k2o/units/Length;ILjava/lang/Object;)Lorg/jraf/k2o/stdlib/Vect;
 	public fun equals (Ljava/lang/Object;)Z
-	public final fun getX ()Ljava/lang/Number;
-	public final fun getY ()Ljava/lang/Number;
-	public final fun getZ ()Ljava/lang/Number;
+	public final fun getX-TF7tof8 ()D
+	public final fun getY-4NnNWHc ()Lorg/jraf/k2o/units/Length;
+	public final fun getZ-4NnNWHc ()Lorg/jraf/k2o/units/Length;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
 
 public final class org/jraf/k2o/stdlib/Vect$Companion {
-	public final fun of ([Ljava/lang/Number;)Lorg/jraf/k2o/stdlib/Vect;
+	public final fun of ([Lorg/jraf/k2o/units/Length;)Lorg/jraf/k2o/stdlib/Vect;
+}
+
+public final class org/jraf/k2o/units/Angle : java/lang/Comparable {
+	public static final field Companion Lorg/jraf/k2o/units/Angle$Companion;
+	public static final synthetic fun box-impl (D)Lorg/jraf/k2o/units/Angle;
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo-7JEjXpw (D)I
+	public static fun compareTo-7JEjXpw (DD)I
+	public static fun constructor-impl (Ljava/lang/Number;)D
+	public static final fun div-7JEjXpw (DD)Ljava/lang/Number;
+	public static final fun div-weD1j-o (DLjava/lang/Number;)D
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (DLjava/lang/Object;)Z
+	public static final fun equals-impl0 (DD)Z
+	public final fun getDegrees ()D
+	public fun hashCode ()I
+	public static fun hashCode-impl (D)I
+	public static final fun minus-zAJsWtU (DD)D
+	public static final fun plus-zAJsWtU (DD)D
+	public static final fun rem-weD1j-o (DLjava/lang/Number;)D
+	public static final fun rem-zAJsWtU (DD)D
+	public static final fun times-weD1j-o (DLjava/lang/Number;)D
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (D)Ljava/lang/String;
+	public static final fun unaryMinus-UYI0fco (D)D
+	public final synthetic fun unbox-impl ()D
+}
+
+public final class org/jraf/k2o/units/Angle$Companion {
+	public final fun getDeg-weD1j-o (Ljava/lang/Number;)D
+	public final fun getFullCircle-UYI0fco ()D
+	public final fun getRad-weD1j-o (Ljava/lang/Number;)D
+	public final fun getZero-UYI0fco ()D
+	public final fun times-Q1SEjtc (Ljava/lang/Number;D)D
+}
+
+public final class org/jraf/k2o/units/Length : java/lang/Comparable {
+	public static final field Companion Lorg/jraf/k2o/units/Length$Companion;
+	public static final synthetic fun box-impl (D)Lorg/jraf/k2o/units/Length;
+	public synthetic fun compareTo (Ljava/lang/Object;)I
+	public fun compareTo-gIn_D1g (D)I
+	public static fun compareTo-gIn_D1g (DD)I
+	public static fun constructor-impl (Ljava/lang/Number;)D
+	public static final fun div-eoWhSmc (DLjava/lang/Number;)D
+	public static final fun div-gIn_D1g (DD)Ljava/lang/Number;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (DLjava/lang/Object;)Z
+	public static final fun equals-impl0 (DD)Z
+	public final fun getMillimeters ()D
+	public fun hashCode ()I
+	public static fun hashCode-impl (D)I
+	public static final fun minus-BmDBH30 (DD)D
+	public static final fun plus-BmDBH30 (DD)D
+	public static final fun rem-BmDBH30 (DD)D
+	public static final fun rem-eoWhSmc (DLjava/lang/Number;)D
+	public static final fun times-eoWhSmc (DLjava/lang/Number;)D
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (D)Ljava/lang/String;
+	public static final fun unaryMinus-TF7tof8 (D)D
+	public final synthetic fun unbox-impl ()D
+}
+
+public final class org/jraf/k2o/units/Length$Companion {
+	public final fun distance-vaJhlxM (Lkotlin/Pair;Lkotlin/Pair;)D
+	public final fun getCm-eoWhSmc (Ljava/lang/Number;)D
+	public final fun getMm-eoWhSmc (Ljava/lang/Number;)D
+	public final fun getSmallest-TF7tof8 ()D
+	public final fun getZero-TF7tof8 ()D
+	public final fun pythagoreanHypotenuse-Zs_UaiQ (DD)D
+	public final fun pythagoreanSide-Zs_UaiQ (DD)D
+	public final fun times-muGZzYg (Ljava/lang/Number;D)D
 }
 
