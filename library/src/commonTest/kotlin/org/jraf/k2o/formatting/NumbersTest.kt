@@ -24,6 +24,7 @@
 
 package org.jraf.k2o.formatting
 
+import org.jraf.k2o.units.Length
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -50,5 +51,10 @@ class NumbersTest {
     assertEquals("-1.235", (-1.2346).formatted())
     assertEquals("-1.2", (-1.2).formatted())
     assertEquals("0", (-0.0004).formatted())
+  }
+
+  @Test
+  fun smallestLengthIsFormatted() {
+    assertEquals("0.001", Length(0.001).toString())
   }
 }

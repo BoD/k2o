@@ -27,6 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
+import org.jraf.k2o.units.Length
 
 /**
  * [Translates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#translate) (moves) its children by
@@ -39,9 +40,9 @@ import org.jraf.k2o.dsl.withBraces
  */
 @Composable
 fun translate(
-  x: Number = 0,
-  y: Number = 0,
-  z: Number = 0,
+  x: Length = Length.Zero,
+  y: Length = Length.Zero,
+  z: Length = Length.Zero,
   content: @Composable () -> Unit,
 ) {
   Line("translate(${Vect(x, y, z)})")

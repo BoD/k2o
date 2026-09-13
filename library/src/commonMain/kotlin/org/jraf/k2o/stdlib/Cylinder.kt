@@ -26,7 +26,7 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a [cylinder](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#cylinder) standing on the
@@ -52,11 +52,11 @@ import org.jraf.k2o.formatting.formatted
  */
 @Composable
 fun Cylinder(
-  height: Number,
-  radius: Number? = null,
-  topRadius: Number? = null,
-  diameter: Number? = null,
-  topDiameter: Number? = null,
+  height: Length,
+  radius: Length? = null,
+  topRadius: Length? = null,
+  diameter: Length? = null,
+  topDiameter: Length? = null,
   center: Boolean = false,
   segments: Int? = null,
 ) {
@@ -71,21 +71,21 @@ fun Cylinder(
   }
 
   val args = buildList {
-    add("h = ${height.formatted()}")
+    add("h = $height")
     if (topRadius != null) {
-      add("r1 = ${radius!!.formatted()}")
-      add("r2 = ${topRadius.formatted()}")
+      add("r1 = ${radius!!}")
+      add("r2 = $topRadius")
     } else if (radius != null) {
-      add("r = ${radius.formatted()}")
+      add("r = $radius")
     }
     if (topDiameter != null) {
-      add("d1 = ${diameter!!.formatted()}")
-      add("d2 = ${topDiameter.formatted()}")
+      add("d1 = ${diameter!!}")
+      add("d2 = $topDiameter")
     } else if (diameter != null) {
-      add("d = ${diameter.formatted()}")
+      add("d = $diameter")
     }
     if (center) add("center = true")
-    segments?.let { add("\$fn = $it") }
+    segments?.let { add($$"$fn = $$it") }
   }
   Line("cylinder(${args.joinToString(", ")});")
 }

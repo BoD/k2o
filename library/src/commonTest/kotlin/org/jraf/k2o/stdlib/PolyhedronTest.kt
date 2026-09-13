@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -51,10 +52,10 @@ class PolyhedronTest {
       renderOpenScad {
         Polyhedron(
           points = listOf(
-            Triple(0, 0, 0),
-            Triple(1, 0, 0),
-            Triple(0, 1, 0),
-            Triple(0, 0, 1),
+            Triple(0.mm, 0.mm, 0.mm),
+            Triple(1.mm, 0.mm, 0.mm),
+            Triple(0.mm, 1.mm, 0.mm),
+            Triple(0.mm, 0.mm, 1.mm),
           ),
           faces = listOf(
             listOf(0, 1, 2),
@@ -83,7 +84,7 @@ class PolyhedronTest {
       """.trimIndent(),
       renderOpenScad {
         Polyhedron(
-          points = listOf(Triple(0, 0, 0)),
+          points = listOf(Triple(0.mm, 0.mm, 0.mm)),
           faces = listOf(listOf(0)),
           convexity = 10,
         )

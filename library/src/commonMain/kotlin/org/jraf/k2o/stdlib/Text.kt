@@ -27,6 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * Horizontal alignment of a [Text] block relative to its origin, mapping to OpenSCAD's `halign`.
@@ -76,7 +77,7 @@ enum class TextDirection(internal val value: String) {
 @Composable
 fun Text(
   text: String,
-  size: Number? = null,
+  size: Length? = null,
   font: String? = null,
   horizontalAlignment: TextHorizontalAlignment? = null,
   verticalAlignment: TextVerticalAlignment? = null,
@@ -88,7 +89,7 @@ fun Text(
 ) {
   val args = buildList {
     add("\"$text\"")
-    size?.let { add("size = ${it.formatted()}") }
+    size?.let { add("size = $it") }
     font?.let { add("font = \"$it\"") }
     horizontalAlignment?.let { add("halign = \"${it.value}\"") }
     verticalAlignment?.let { add("valign = \"${it.value}\"") }
@@ -96,7 +97,7 @@ fun Text(
     direction?.let { add("direction = \"${it.value}\"") }
     language?.let { add("language = \"$it\"") }
     script?.let { add("script = \"$it\"") }
-    segments?.let { add("\$fn = $it") }
+    segments?.let { add($$"$fn = $$it") }
   }
   Line("text(${args.joinToString(", ")});")
 }

@@ -27,6 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
+import org.jraf.k2o.formatting.formatted
 
 /**
  * [Scales](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#scale) its children by a factor along
@@ -47,7 +48,7 @@ fun scale(
   z: Number = 1,
   content: @Composable () -> Unit,
 ) {
-  Line("scale(${Vect(x, y, z)})")
+  Line("scale([${x.formatted()}, ${y.formatted()}, ${z.formatted()}])")
   withBraces {
     content()
   }

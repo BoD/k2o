@@ -26,7 +26,7 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a [cube](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#cube) (a box) with the
@@ -40,9 +40,9 @@ import org.jraf.k2o.formatting.formatted
  */
 @Composable
 fun Cube(
-  x: Number,
-  y: Number,
-  z: Number,
+  x: Length,
+  y: Length,
+  z: Length,
   center: Boolean = false,
 ) {
   if (center) {
@@ -61,10 +61,10 @@ fun Cube(
  * When `true`, it is centered on the origin.
  */
 @Composable
-fun Cube(size: Number, center: Boolean = false) {
+fun Cube(size: Length, center: Boolean = false) {
   if (center) {
-    Line("cube(${size.formatted()}, center = true);")
+    Line("cube($size, center = true);")
   } else {
-    Line("cube(${size.formatted()});")
+    Line("cube($size);")
   }
 }

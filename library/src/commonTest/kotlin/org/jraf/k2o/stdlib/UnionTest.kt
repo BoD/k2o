@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -40,8 +41,8 @@ class UnionTest {
       """.trimIndent(),
       renderOpenScad {
         union {
-          Cube(2)
-          Sphere(radius = 1)
+          Cube(2.mm)
+          Sphere(radius = 1.mm)
         }
       },
     )

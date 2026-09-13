@@ -27,7 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * [Offsets](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#offset) a 2D shape by a radius,
@@ -38,10 +38,10 @@ import org.jraf.k2o.formatting.formatted
  */
 @Composable
 fun offset(
-  radius: Number,
+  radius: Length,
   content: @Composable () -> Unit,
 ) {
-  Line("offset(r = ${radius.formatted()})")
+  Line("offset(r = $radius)")
   withBraces {
     content()
   }
@@ -57,11 +57,11 @@ fun offset(
  */
 @Composable
 fun offset(
-  delta: Number,
+  delta: Length,
   chamfer: Boolean = false,
   content: @Composable () -> Unit,
 ) {
-  Line("offset(delta = ${delta.formatted()}${if (chamfer) ", chamfer = true" else ""})")
+  Line("offset(delta = $delta${if (chamfer) ", chamfer = true" else ""})")
   withBraces {
     content()
   }

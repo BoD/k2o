@@ -1,7 +1,7 @@
 [versions]
-kotlin = "2.4.10"
+kotlin = "2.4.20"
 androidx-collection = "1.6.0"
-compose = "1.11.1"
+compose = "1.12.0"
 kotlinx-io = "0.9.1"
 librarian = "0.2.2-SNAPSHOT"
 klibnanolog = "1.2.1"

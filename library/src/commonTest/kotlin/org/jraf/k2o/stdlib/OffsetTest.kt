@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -38,8 +39,8 @@ class OffsetTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        offset(radius = 1.5) {
-          Square(2)
+        offset(radius = 1.5.mm) {
+          Square(2.mm)
         }
       },
     )
@@ -54,8 +55,8 @@ class OffsetTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        offset(delta = 1.5, chamfer = true) {
-          Square(2)
+        offset(delta = 1.5.mm, chamfer = true) {
+          Square(2.mm)
         }
       },
     )

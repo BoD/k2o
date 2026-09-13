@@ -27,6 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.indent
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a 3D [polyhedron](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#polyhedron) from a
@@ -40,7 +41,7 @@ import org.jraf.k2o.dsl.indent
  */
 @Composable
 fun Polyhedron(
-  points: List<Triple<Number, Number, Number>>,
+  points: List<Triple<Length, Length, Length>>,
   faces: List<List<Int>>,
   convexity: Int? = null,
 ) {

@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -34,7 +35,7 @@ class SquareTest {
     assertEquals(
       "square([4, 4]);",
       renderOpenScad {
-        Square(width = 4)
+        Square(width = 4.mm)
       },
     )
   }
@@ -44,7 +45,7 @@ class SquareTest {
     assertEquals(
       "square([4, 2.5]);",
       renderOpenScad {
-        Square(width = 4, height = 2.5)
+        Square(width = 4.mm, height = 2.5.mm)
       },
     )
   }
@@ -54,7 +55,7 @@ class SquareTest {
     assertEquals(
       "square([4, 2.5], center = true);",
       renderOpenScad {
-        Square(width = 4, height = 2.5, center = true)
+        Square(width = 4.mm, height = 2.5.mm, center = true)
       },
     )
   }

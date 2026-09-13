@@ -24,7 +24,7 @@
 
 package org.jraf.k2o.stdlib
 
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * A 1D, 2D or 3D vector, rendered as an OpenSCAD vector literal such as `[1, 2, 3]`.
@@ -37,31 +37,31 @@ import org.jraf.k2o.formatting.formatted
  * @param z The third (Z) component, or `null` if unset.
  */
 data class Vect(
-  val x: Number,
-  val y: Number? = null,
-  val z: Number? = null,
+  val x: Length,
+  val y: Length? = null,
+  val z: Length? = null,
 ) {
   override fun toString(): String {
     return buildString {
       append("[")
-      append(x.formatted())
+      append(x)
       if (y == null) {
         if (z == null) {
           append("]")
         } else {
           append(", ")
           append("0, ")
-          append(z.formatted())
+          append(z)
           append("]")
         }
       } else {
         append(", ")
-        append(y.formatted())
+        append(y)
         if (z == null) {
           append("]")
         } else {
           append(", ")
-          append(z.formatted())
+          append(z)
           append("]")
         }
       }
@@ -74,7 +74,9 @@ data class Vect(
      *
      * @param elements The components; must contain between one and three values.
      */
-    operator fun of(vararg elements: Number): Vect {
+    // See https://youtrack.jetbrains.com/issue/KT-33565/
+    @Suppress("FINAL_UPPER_BOUND")
+    operator fun <T : Length> of(vararg elements: T): Vect {
       check(elements.isNotEmpty()) { "At least one element is required" }
       check(elements.size <= 3) { "At most three elements are allowed" }
       return Vect(

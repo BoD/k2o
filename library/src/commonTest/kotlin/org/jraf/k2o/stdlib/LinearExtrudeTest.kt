@@ -25,6 +25,8 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Angle.Companion.deg
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -38,8 +40,8 @@ class LinearExtrudeTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        linearExtrude(5) {
-          Square(2)
+        linearExtrude(5.mm) {
+          Square(2.mm)
         }
       },
     )
@@ -64,16 +66,16 @@ class LinearExtrudeTest {
       """.trimIndent(),
       renderOpenScad {
         linearExtrude(
-          height = 5,
-          direction = [0, 0, 1],
+          height = 5.mm,
+          direction = [0.mm, 0.mm, 1.mm],
           center = true,
-          twist = 90,
+          twist = 90.deg,
           scale = 1.5,
           slices = 4,
           segments = 16,
           convexity = 2,
         ) {
-          Square(2)
+          Square(2.mm)
         }
       },
     )

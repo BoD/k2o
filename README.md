@@ -39,9 +39,9 @@ fun main() {
 @Composable
 private fun CubeMinusSphere() {
   difference {
-    Cube(size = 10)
-    translate(x = 2.5, y = 2.5, z = 2.5) {
-      Sphere(radius = 5)
+    Cube(size = 10.mm)
+    translate(x = 2.5.mm, y = 2.5.mm, z = 2.5.mm) {
+      Sphere(radius = 5.mm)
     }
   }
 }
@@ -68,8 +68,8 @@ As you can see, the DSL is very close to OpenSCAD itself so you should feel righ
 ### `@Composable`?
 
 While this doesn't really use anything from Jetpack Compose, I found the `@Composable` annotation is a good fit for this kind of DSL where
-functions represent UI elements (3D elements in this case) that are rendered together.
-It is also a nice way to have the context around without having to pass it explicitly, and to force the use of the DSL only inside the
+functions represent UI elements (in this case, 3D elements) that are rendered together.
+It is also a nice way to have the context without having to pass it around explicitly, and to force the use of the DSL only inside the
 `openScad` block or other composable functions.
 
 ## Author and license

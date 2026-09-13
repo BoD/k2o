@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -38,8 +39,8 @@ class TranslateTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        translate(x = 1, y = 2.5) {
-          Cube(3)
+        translate(x = 1.mm, y = 2.5.mm) {
+          Cube(3.mm)
         }
       },
     )

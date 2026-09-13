@@ -25,6 +25,8 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Angle.Companion.deg
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -39,7 +41,7 @@ class RotateExtrudeTest {
       """.trimIndent(),
       renderOpenScad {
         rotateExtrude {
-          Square(2)
+          Square(2.mm)
         }
       },
     )
@@ -54,8 +56,8 @@ class RotateExtrudeTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        rotateExtrude(90) {
-          Square(2)
+        rotateExtrude(90.deg) {
+          Square(2.mm)
         }
       },
     )

@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -38,8 +39,8 @@ class ResizeTest {
       }
       """.trimIndent(),
       renderOpenScad {
-        resize(x = 10, y = 20, auto = true) {
-          Cube(2)
+        resize(x = 10.mm, y = 20.mm, auto = true) {
+          Cube(2.mm)
         }
       },
     )

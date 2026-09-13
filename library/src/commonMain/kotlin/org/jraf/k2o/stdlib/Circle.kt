@@ -26,7 +26,7 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a 2D [circle](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#circle) centered on the
@@ -42,19 +42,19 @@ import org.jraf.k2o.formatting.formatted
  */
 @Composable
 fun Circle(
-  radius: Number? = null,
-  diameter: Number? = null,
+  radius: Length? = null,
+  diameter: Length? = null,
   segments: Int? = null,
 ) {
   if (radius != null && diameter != null) {
     error("Only one of radius or diameter can be specified")
   }
   val sizeArg = when {
-    radius != null -> radius.formatted()
-    diameter != null -> "d = ${diameter.formatted()}"
+    radius != null -> radius
+    diameter != null -> "d = $diameter"
     else -> null
   }
-  val segmentsArg = if (segments != null) "\$fn = $segments" else null
+  val segmentsArg = if (segments != null) $$"$fn = $$segments" else null
   val args = listOfNotNull(sizeArg, segmentsArg).joinToString(", ")
   Line("circle($args);")
 }

@@ -26,7 +26,7 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a [sphere](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Primitive_Solids#sphere) centered on the
@@ -42,19 +42,19 @@ import org.jraf.k2o.formatting.formatted
  */
 @Composable
 fun Sphere(
-  radius: Number? = null,
-  diameter: Number? = null,
+  radius: Length? = null,
+  diameter: Length? = null,
   segments: Int? = null,
 ) {
   if (radius != null && diameter != null) {
     error("Only one of radius or diameter can be specified")
   }
   val sizeArg = when {
-    radius != null -> "r = ${radius.formatted()}"
-    diameter != null -> "d = ${diameter.formatted()}"
+    radius != null -> "r = $radius"
+    diameter != null -> "d = $diameter"
     else -> null
   }
-  val segmentsArg = if (segments != null) "\$fn = $segments" else null
+  val segmentsArg = if (segments != null) $$"$fn = $$segments" else null
   val args = listOfNotNull(sizeArg, segmentsArg).joinToString(", ")
   Line("sphere($args);")
 }

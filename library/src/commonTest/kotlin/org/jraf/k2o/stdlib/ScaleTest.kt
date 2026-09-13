@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -39,7 +40,7 @@ class ScaleTest {
       """.trimIndent(),
       renderOpenScad {
         scale(x = 2) {
-          Cube(1)
+          Cube(1.mm)
         }
       },
     )
@@ -55,7 +56,7 @@ class ScaleTest {
       """.trimIndent(),
       renderOpenScad {
         scale(x = 2, y = 3, z = 0.5) {
-          Cube(1)
+          Cube(1.mm)
         }
       },
     )
