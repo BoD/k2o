@@ -24,28 +24,27 @@
 
 package org.jraf.k2o.math
 
+import org.jraf.k2o.units.Angle
+import org.jraf.k2o.units.Angle.Companion.deg
 import kotlin.math.PI
 
 /** Converts an angle in degrees to radians. */
-fun degreesToRadians(degrees: Number) = degrees.toDouble() * (PI / 180.0)
+internal fun degreesToRadians(degrees: Number) = degrees.toDouble() * (PI / 180.0)
 
 /** Converts an angle in radians to degrees. */
-fun radiansToDegrees(radians: Number) = radians.toDouble() * (180.0 / PI)
+internal fun radiansToDegrees(radians: Number) = radians.toDouble() * (180.0 / PI)
 
 /**
- * Returns the sine of an angle expressed in **degrees**, matching OpenSCAD's `sin()` (unlike [kotlin.math.sin], which
- * works in radians).
+ * Returns the sine of an angle.
  */
-fun sin(degrees: Number) = kotlin.math.sin(degreesToRadians(degrees))
+fun sin(angle: Angle): Number = kotlin.math.sin(degreesToRadians(angle.degrees))
 
 /**
- * Returns the cosine of an angle expressed in **degrees**, matching OpenSCAD's `cos()` (unlike [kotlin.math.cos],
- * which works in radians).
+ * Returns the cosine of an angle.
  */
-fun cos(degrees: Number) = kotlin.math.cos(degreesToRadians(degrees))
+fun cos(angle: Angle): Number = kotlin.math.cos(degreesToRadians(angle.degrees))
 
 /**
- * Returns the arctangent of [x] as an angle in **degrees**, matching OpenSCAD's `atan()` (unlike [kotlin.math.atan],
- * which returns radians).
+ * Returns the arctangent of [x] as an [Angle].
  */
-fun atan(x: Number) = radiansToDegrees(kotlin.math.atan(x.toDouble()))
+fun atan(x: Number): Angle = radiansToDegrees(kotlin.math.atan(x.toDouble())).deg

@@ -1,5 +1,11 @@
 # Next version (unreleased)
 
+# v1.4.0
+
+_2026-09-13_
+
+- [Breaking] Introduce `Length` and `Angle` types, making the DSL more type-safe.
+
 # v1.3.1
 
 _2026-07-18_

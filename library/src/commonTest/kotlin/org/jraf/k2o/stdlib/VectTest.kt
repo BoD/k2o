@@ -24,6 +24,8 @@
 
 package org.jraf.k2o.stdlib
 
+import org.jraf.k2o.units.Length
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -31,35 +33,35 @@ import kotlin.test.assertFailsWith
 class VectTest {
   @Test
   fun oneElement() {
-    assertEquals("[1]", Vect.of(1).toString())
+    assertEquals("[1]", Vect.of(1.mm).toString())
   }
 
   @Test
   fun twoElements() {
-    assertEquals("[1, 2.5]", Vect.of(1, 2.5).toString())
+    assertEquals("[1, 2.5]", Vect.of(1.mm, 2.5.mm).toString())
   }
 
   @Test
   fun threeElements() {
-    assertEquals("[1, 2.5, 3]", Vect.of(1, 2.5, 3).toString())
+    assertEquals("[1, 2.5, 3]", Vect.of(1.mm, 2.5.mm, 3.mm).toString())
   }
 
   @Test
   fun zElementWithoutYUsesZeroForY() {
-    assertEquals("[1, 0, 3]", Vect(x = 1, z = 3).toString())
+    assertEquals("[1, 0, 3]", Vect(x = 1.mm, z = 3.mm).toString())
   }
 
   @Test
   fun noElementsFails() {
     assertFailsWith<IllegalStateException> {
-      Vect.of()
+      Vect.of<Length>()
     }
   }
 
   @Test
   fun moreThanThreeElementsFails() {
     assertFailsWith<IllegalStateException> {
-      Vect.of(1, 2, 3, 4)
+      Vect.of(1.mm, 2.mm, 3.mm, 4.mm)
     }
   }
 }

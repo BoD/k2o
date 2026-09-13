@@ -33,20 +33,32 @@ import kotlin.math.floor
  * `"2"`). Fractional values are rounded to three decimal places (micrometre precision at OpenSCAD's millimetre scale)
  * with trailing zeros trimmed, keeping the generated code compact and readable.
  */
-fun Number.formatted(): String {
-  return if (this is Int || this is Long) {
-    this.toString()
-  } else if (this is Double && this % 1.0 == 0.0) {
-    this.toLong().toString()
-  } else if (this is Float && this % 1f == 0f) {
-    this.toLong().toString()
-  } else if (this is Double) {
-    this.formattedDecimal()
-  } else if (this is Float) {
-    this.toDouble().formattedDecimal()
-  } else {
-    // Fallback for other types, e.g. Short, Byte, etc.
-    this.toString()
+internal fun Number.formatted(): String {
+  return when (this) {
+    is Int, is Long -> {
+      this.toString()
+    }
+
+    is Double if this % 1.0 == 0.0 -> {
+      this.toLong().toString()
+    }
+
+    is Float if this % 1f == 0f -> {
+      this.toLong().toString()
+    }
+
+    is Double -> {
+      this.formattedDecimal()
+    }
+
+    is Float -> {
+      this.toDouble().formattedDecimal()
+    }
+
+    else -> {
+      // Fallback for other types, e.g. Short, Byte, etc.
+      this.toString()
+    }
   }
 }
 

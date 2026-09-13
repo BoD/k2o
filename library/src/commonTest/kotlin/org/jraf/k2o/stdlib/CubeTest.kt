@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -34,7 +35,7 @@ class CubeTest {
     assertEquals(
       "cube(3);",
       renderOpenScad {
-        Cube(3)
+        Cube(3.mm)
       },
     )
   }
@@ -44,7 +45,7 @@ class CubeTest {
     assertEquals(
       "cube(3, center = true);",
       renderOpenScad {
-        Cube(3, center = true)
+        Cube(3.mm, center = true)
       },
     )
   }
@@ -54,7 +55,7 @@ class CubeTest {
     assertEquals(
       "cube([1, 2.5, 3]);",
       renderOpenScad {
-        Cube(1, 2.5, 3)
+        Cube(1.mm, 2.5.mm, 3.mm)
       },
     )
   }
@@ -64,7 +65,7 @@ class CubeTest {
     assertEquals(
       "cube([1, 2.5, 3], center = true);",
       renderOpenScad {
-        Cube(1, 2.5, 3, center = true)
+        Cube(1.mm, 2.5.mm, 3.mm, center = true)
       },
     )
   }

@@ -27,18 +27,18 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Angle
 
 /**
  * [Rotate-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#rotate_extrude) a 2D shape
  * around the Z axis to produce a solid of revolution. The 2D children must lie in the positive X half of the XY plane.
  *
- * @param degrees The sweep angle, in degrees. Defaults to `360` for a full revolution.
+ * @param angle The sweep angle. Defaults to `360` for a full revolution.
  * @param content The 2D children to revolve.
  */
 @Composable
-fun rotateExtrude(degrees: Number = 360, content: @Composable () -> Unit) {
-  Line("rotate_extrude(${degrees.formatted()})");
+fun rotateExtrude(angle: Angle = Angle.FullCircle, content: @Composable () -> Unit) {
+  Line("rotate_extrude($angle)");
   withBraces {
     content()
   }

@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -40,7 +41,7 @@ class PolygonTest {
       ]);
       """.trimIndent(),
       renderOpenScad {
-        Polygon(0 to 0, 1.5 to 0, 0 to 2)
+        Polygon(0.mm to 0.mm, 1.5.mm to 0.mm, 0.mm to 2.mm)
       },
     )
   }
@@ -58,7 +59,7 @@ class PolygonTest {
       """.trimIndent(),
       renderOpenScad {
         Polygon(
-          0 to 0, 4 to 0, 4 to 4, 0 to 4,
+          0.mm to 0.mm, 4.mm to 0.mm, 4.mm to 4.mm, 0.mm to 4.mm,
           paths = listOf(listOf(0, 1, 2, 3)),
           convexity = 2,
         )

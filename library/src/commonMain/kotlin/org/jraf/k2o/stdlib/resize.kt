@@ -27,6 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
+import org.jraf.k2o.units.Length
 
 /**
  * [Resizes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#resize) its children to the given
@@ -41,9 +42,9 @@ import org.jraf.k2o.dsl.withBraces
  */
 @Composable
 fun resize(
-  x: Number = 0,
-  y: Number = 0,
-  z: Number = 0,
+  x: Length = Length.Zero,
+  y: Length = Length.Zero,
+  z: Length = Length.Zero,
   auto: Boolean,
   content: @Composable () -> Unit,
 ) {

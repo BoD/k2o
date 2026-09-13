@@ -26,6 +26,7 @@ package org.jraf.k2o.stdlib
 
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a 2D [square](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#square) (or rectangle).
@@ -37,8 +38,8 @@ import org.jraf.k2o.dsl.Line
  */
 @Composable
 fun Square(
-  width: Number,
-  height: Number = width,
+  width: Length,
+  height: Length = width,
   center: Boolean = false,
 ) {
   if (center) {

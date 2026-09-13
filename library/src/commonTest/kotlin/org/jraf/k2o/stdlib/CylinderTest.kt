@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -35,7 +36,7 @@ class CylinderTest {
     assertEquals(
       "cylinder(h = 10);",
       renderOpenScad {
-        Cylinder(height = 10)
+        Cylinder(height = 10.mm)
       },
     )
   }
@@ -45,7 +46,7 @@ class CylinderTest {
     assertEquals(
       $$"cylinder(h = 10, r = 2.5, $fn = 48);",
       renderOpenScad {
-        Cylinder(height = 10, radius = 2.5, segments = 48)
+        Cylinder(height = 10.mm, radius = 2.5.mm, segments = 48)
       },
     )
   }
@@ -55,7 +56,7 @@ class CylinderTest {
     assertEquals(
       "cylinder(h = 10, d = 5);",
       renderOpenScad {
-        Cylinder(height = 10, diameter = 5)
+        Cylinder(height = 10.mm, diameter = 5.mm)
       },
     )
   }
@@ -65,7 +66,7 @@ class CylinderTest {
     assertEquals(
       "cylinder(h = 10, r = 2.5, center = true);",
       renderOpenScad {
-        Cylinder(height = 10, radius = 2.5, center = true)
+        Cylinder(height = 10.mm, radius = 2.5.mm, center = true)
       },
     )
   }
@@ -75,7 +76,7 @@ class CylinderTest {
     assertEquals(
       "cylinder(h = 10, r1 = 5, r2 = 2);",
       renderOpenScad {
-        Cylinder(height = 10, radius = 5, topRadius = 2)
+        Cylinder(height = 10.mm, radius = 5.mm, topRadius = 2.mm)
       },
     )
   }
@@ -85,7 +86,7 @@ class CylinderTest {
     assertEquals(
       "cylinder(h = 10, d1 = 10, d2 = 4);",
       renderOpenScad {
-        Cylinder(height = 10, diameter = 10, topDiameter = 4)
+        Cylinder(height = 10.mm, diameter = 10.mm, topDiameter = 4.mm)
       },
     )
   }
@@ -94,7 +95,7 @@ class CylinderTest {
   fun radiusAndDiameterFails() {
     assertFailsWith<IllegalStateException> {
       renderOpenScad {
-        Cylinder(height = 10, radius = 2, diameter = 4)
+        Cylinder(height = 10.mm, radius = 2.mm, diameter = 4.mm)
       }
     }
   }
@@ -103,7 +104,7 @@ class CylinderTest {
   fun mixRadiusAndDiameterConeFails() {
     assertFailsWith<IllegalStateException> {
       renderOpenScad {
-        Cylinder(height = 10, radius = 2, topDiameter = 4)
+        Cylinder(height = 10.mm, radius = 2.mm, topDiameter = 4.mm)
       }
     }
   }
@@ -112,7 +113,7 @@ class CylinderTest {
   fun topRadiusWithoutRadiusFails() {
     assertFailsWith<IllegalStateException> {
       renderOpenScad {
-        Cylinder(height = 10, topRadius = 4)
+        Cylinder(height = 10.mm, topRadius = 4.mm)
       }
     }
   }

@@ -41,14 +41,17 @@ import org.jraf.k2o.stdlib.rotate
 import org.jraf.k2o.stdlib.rotateExtrude
 import org.jraf.k2o.stdlib.translate
 import org.jraf.k2o.stdlib.union
-import kotlin.math.pow
-import kotlin.math.sqrt
+import org.jraf.k2o.units.Angle.Companion.deg
+import org.jraf.k2o.units.Length
+import org.jraf.k2o.units.Length.Companion.cm
+import org.jraf.k2o.units.Length.Companion.mm
+import org.jraf.k2o.units.Length.Companion.pythagoreanSide
 
 @Composable
 private fun Base(
-  width: Int,
-  thickness: Int,
-  indentWidth: Int,
+  width: Length,
+  thickness: Length,
+  indentWidth: Length,
 ) {
   color(Color.Green) {
     difference {
@@ -68,14 +71,14 @@ private fun Base(
 
 @Composable
 private fun Leg(
-  thickness: Number,
-  width: Number,
-  height: Number,
-  curveRadius: Number,
+  thickness: Length,
+  width: Length,
+  height: Length,
+  curveRadius: Length,
 ) {
-  translate(y = width, z = height.toDouble() - curveRadius.toDouble()) {
-    rotate(x = 90) {
-      rotateExtrude(90) {
+  translate(y = width, z = height - curveRadius) {
+    rotate(x = 90.deg) {
+      rotateExtrude(90.deg) {
         translate(x = curveRadius) {
           Square(thickness, width)
         }
@@ -84,11 +87,11 @@ private fun Leg(
   }
 
   translate(x = curveRadius) {
-    Cube(thickness, width, height.toDouble() - curveRadius.toDouble())
+    Cube(thickness, width, height - curveRadius)
   }
 
-  translate(x = -15, z = height) {
-    Cube(15, width, thickness)
+  translate(x = -15.mm, z = height) {
+    Cube(15.mm, width, thickness)
   }
 }
 
@@ -96,29 +99,31 @@ private fun Leg(
 private fun MugBooster() {
   Use("star.scad")
 
-  val baseWidth = 100
-  val baseThickness = 4
-  val baseHeight = 80
-  val baseIndentHeight = 1.25
-  val baseIndentWidth = 8
+  val baseWidth = 10.cm
+  val baseThickness = 4.mm
+  val baseHeight = 8.cm
+  val baseIndentHeight = 1.25.mm
+  val baseIndentWidth = 8.mm
 
   val legThickness = baseThickness
 
-  val coffeeMachineBaseWidth = 130
+  val coffeeMachineBaseWidth = 13.cm
 
   // Distance between the coffee machine base and the legs
-  val coffeeMachineBaseMargin = .5
+  val coffeeMachineBaseMargin = .5.mm
 
   // Distance on the X axis between the centers of two legs
   val legXDistance = coffeeMachineBaseWidth + legThickness + coffeeMachineBaseMargin * 2
 
   // Distance on the Y axis between the centers of two legs
-  val legYDistance = 60
+  val legYDistance = 6.cm
 
-  val legWidth = 8
+  val legWidth = 8.mm
 
-  val legCurveRadius =
-    (legXDistance - baseThickness) / 2 - sqrt((baseWidth / 2.0).pow(2) - ((legYDistance - legWidth) / 2.0).pow(2))
+  val legCurveRadius = (legXDistance - baseThickness) / 2 - pythagoreanSide(
+    hypotenuse = baseWidth / 2,
+    side = (legYDistance - legWidth) / 2,
+  )
 
   difference {
     union {
@@ -138,14 +143,14 @@ private fun MugBooster() {
       }
 
       // Left top leg
-      rotate(z = 180) {
+      rotate(z = 180.deg) {
         translate(x = legXDistance / 2 - baseThickness / 2 - legCurveRadius, y = -legYDistance / 2 - legWidth / 2) {
           Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
         }
       }
 
       // Left bottom leg
-      rotate(z = 180) {
+      rotate(z = 180.deg) {
         translate(x = legXDistance / 2 - baseThickness / 2 - legCurveRadius, y = legYDistance / 2 - legWidth / 2) {
           Leg(thickness = legThickness, width = legWidth, height = baseHeight, curveRadius = legCurveRadius)
         }

@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -39,7 +40,7 @@ class ColorTest {
       """.trimIndent(),
       renderOpenScad {
         color(Color.Red) {
-          Cube(2)
+          Cube(2.mm)
         }
       },
     )

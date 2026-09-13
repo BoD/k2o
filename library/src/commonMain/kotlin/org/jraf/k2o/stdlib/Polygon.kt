@@ -27,6 +27,7 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.indent
+import org.jraf.k2o.units.Length
 
 /**
  * Creates a 2D [polygon](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_Primitives#polygon) from a list of
@@ -41,7 +42,7 @@ import org.jraf.k2o.dsl.indent
  */
 @Composable
 fun Polygon(
-  vararg points: Pair<Number, Number>,
+  vararg points: Pair<Length, Length>,
   paths: List<List<Int>>? = null,
   convexity: Int? = null,
 ) {

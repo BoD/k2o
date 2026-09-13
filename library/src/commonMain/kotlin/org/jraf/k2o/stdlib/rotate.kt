@@ -27,25 +27,25 @@ package org.jraf.k2o.stdlib
 import androidx.compose.runtime.Composable
 import org.jraf.k2o.dsl.Line
 import org.jraf.k2o.dsl.withBraces
-import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Angle
 
 /**
- * [Rotates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#rotate) its children around each axis,
- * in degrees. Rotations are applied around X, then Y, then Z.
+ * [Rotates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#rotate) its children around each axis.
+ * Rotations are applied around X, then Y, then Z.
  *
- * @param x The rotation around the X axis, in degrees.
- * @param y The rotation around the Y axis, in degrees.
- * @param z The rotation around the Z axis, in degrees.
+ * @param x The rotation around the X axis.
+ * @param y The rotation around the Y axis.
+ * @param z The rotation around the Z axis.
  * @param content The children to rotate.
  */
 @Composable
 fun rotate(
-  x: Number = 0,
-  y: Number = 0,
-  z: Number = 0,
+  x: Angle = Angle.Zero,
+  y: Angle = Angle.Zero,
+  z: Angle = Angle.Zero,
   content: @Composable () -> Unit,
 ) {
-  Line("rotate(${Vect(x, y, z)})")
+  Line("rotate([$x, $y, $z])")
   withBraces {
     content()
   }
@@ -53,17 +53,17 @@ fun rotate(
 
 /**
  * [Rotates](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Transformations#rotate) its children around the Z axis
- * by the given angle, in degrees.
+ * by the given angle.
  *
- * @param angle The rotation around the Z axis, in degrees.
+ * @param angle The rotation around the Z axis.
  * @param content The children to rotate.
  */
 @Composable
 fun rotate(
-  angle: Number,
+  angle: Angle,
   content: @Composable () -> Unit,
 ) {
-  Line("rotate(${angle.formatted()})")
+  Line("rotate($angle)")
   withBraces {
     content()
   }

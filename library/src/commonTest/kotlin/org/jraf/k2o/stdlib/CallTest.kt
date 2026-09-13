@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -57,7 +58,7 @@ class CallTest {
       """.trimIndent(),
       renderOpenScad {
         Call("shell", "thickness" to 2) {
-          Cube(4)
+          Cube(4.mm)
         }
       },
     )

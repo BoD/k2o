@@ -30,6 +30,8 @@ import org.jraf.k2o.dsl.RawText
 import org.jraf.k2o.dsl.indent
 import org.jraf.k2o.dsl.withBraces
 import org.jraf.k2o.formatting.formatted
+import org.jraf.k2o.units.Angle
+import org.jraf.k2o.units.Length
 
 /**
  * [Linear-extrudes](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/2D_to_3D_Extrusion#linear_extrude) a 2D shape
@@ -40,10 +42,10 @@ import org.jraf.k2o.formatting.formatted
  */
 @Composable
 fun linearExtrude(
-  height: Number,
+  height: Length,
   content: @Composable () -> Unit,
 ) {
-  Line("linear_extrude(${height.formatted()})")
+  Line("linear_extrude($height)")
   withBraces {
     content()
   }
@@ -59,7 +61,7 @@ fun linearExtrude(
  * how far the shape travels.
  * @param center When `false` (the default), the solid grows up from the XY plane. When `true`, it is centered on the
  * plane.
- * @param twist The total rotation, in degrees, applied from bottom to top.
+ * @param twist The total rotation applied from bottom to top.
  * @param scale The scale factor applied to the top face (`1` keeps the original size).
  * @param slices The number of intermediate layers, mainly relevant when [twist] is used.
  * @param segments The number of fragments (OpenSCAD's `$fn`) used for the extrusion.
@@ -69,10 +71,10 @@ fun linearExtrude(
  */
 @Composable
 fun linearExtrude(
-  height: Number,
+  height: Length,
   direction: Vect? = null,
   center: Boolean = false,
-  twist: Number? = null,
+  twist: Angle? = null,
   scale: Number? = null,
   slices: Int? = null,
   segments: Int? = null,
@@ -81,7 +83,7 @@ fun linearExtrude(
 ) {
   Line("linear_extrude(")
   indent {
-    Line("height = ${height.formatted()}")
+    Line("height = $height")
     direction?.let {
       RawText(",")
       Line("v = $it")
@@ -92,7 +94,7 @@ fun linearExtrude(
     }
     twist?.let {
       RawText(",")
-      Line("twist = ${it.formatted()}")
+      Line("twist = $it")
     }
     scale?.let {
       RawText(",")

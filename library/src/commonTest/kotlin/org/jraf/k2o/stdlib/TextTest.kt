@@ -25,6 +25,7 @@
 package org.jraf.k2o.stdlib
 
 import org.jraf.k2o.dsl.renderOpenScad
+import org.jraf.k2o.units.Length.Companion.mm
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -44,7 +45,7 @@ class TextTest {
     assertEquals(
       """text("Hi", size = 8, halign = "center", valign = "top");""",
       renderOpenScad {
-        Text("Hi", size = 8, horizontalAlignment = TextHorizontalAlignment.Center, verticalAlignment = TextVerticalAlignment.Top)
+        Text("Hi", size = 8.mm, horizontalAlignment = TextHorizontalAlignment.Center, verticalAlignment = TextVerticalAlignment.Top)
       },
     )
   }
@@ -56,7 +57,7 @@ class TextTest {
       renderOpenScad {
         Text(
           text = "Hi",
-          size = 8,
+          size = 8.mm,
           font = "Liberation Sans:style=Bold",
           horizontalAlignment = TextHorizontalAlignment.Right,
           verticalAlignment = TextVerticalAlignment.Baseline,
