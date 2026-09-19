@@ -1,0 +1,201 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.jraf.k2o",
+    "module": "k2o",
+    "version": "1.4.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-metadata-1.4.1-SNAPSHOT.jar",
+          "url": "k2o-1.4.1-SNAPSHOT.jar",
+          "size": 20777,
+          "sha512": "7ca20b5e536d7717e798e9b359225a63b33fede0f862e706ba0b6b38af387bce0214d7767d920b39a38a224d42b77dd8c1e5236141c9b2c97d97b56c8b6c4239",
+          "sha256": "d833bf1d6e67d4f493d866062736b5a25551dcbb24181b3ba495e39a4c9a8c79",
+          "sha1": "e30f74f83fb972685837deb0d3bf12a41e2b1944",
+          "md5": "82accffc6238aabd1c1bc7c1d3939efd"
+        }
+      ]
+    },
+    {
+      "name": "metadataSourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "files": [
+        {
+          "name": "k2o-kotlin-1.4.1-SNAPSHOT-sources.jar",
+          "url": "k2o-1.4.1-SNAPSHOT-sources.jar",
+          "size": 41923,
+          "sha512": "6161d64814feb7e1d79729df3841d1da86450fcdf68bfe41acea6631fdfb90fc6180f740f57cd6ddd2584c18c9f703a1a5c2af936807996c2dcf5b6317d911bd",
+          "sha256": "fbc963d52790cc1662034bbb494ad57f6f6c0ff841fea0e28f8c4ee2c4fa2233",
+          "sha1": "96a9ca33b0cde6e3688947fa24766b1bb8490f23",
+          "md5": "6cc31e3b4faca3cc98587b9b865c6f01"
+        }
+      ]
+    },
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../k2o-jvm/1.4.1-SNAPSHOT/k2o-jvm-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-jvm",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../k2o-jvm/1.4.1-SNAPSHOT/k2o-jvm-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-jvm",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "available-at": {
+        "url": "../../k2o-jvm/1.4.1-SNAPSHOT/k2o-jvm-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-jvm",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../k2o-macosarm64/1.4.1-SNAPSHOT/k2o-macosarm64-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-macosarm64",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../k2o-macosarm64/1.4.1-SNAPSHOT/k2o-macosarm64-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-macosarm64",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64ResourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.libraryelements": "kotlin-multiplatformresources",
+        "org.gradle.usage": "kotlin-multiplatformresources",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../k2o-macosarm64/1.4.1-SNAPSHOT/k2o-macosarm64-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-macosarm64",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../k2o-macosarm64/1.4.1-SNAPSHOT/k2o-macosarm64-1.4.1-SNAPSHOT.module",
+        "group": "org.jraf.k2o",
+        "module": "k2o-macosarm64",
+        "version": "1.4.1-SNAPSHOT"
+      }
+    }
+  ]
+}

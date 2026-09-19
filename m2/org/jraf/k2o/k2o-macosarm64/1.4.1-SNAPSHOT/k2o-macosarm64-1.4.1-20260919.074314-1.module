@@ -1,0 +1,218 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../k2o/1.4.1-SNAPSHOT/k2o-1.4.1-SNAPSHOT.module",
+    "group": "org.jraf.k2o",
+    "module": "k2o",
+    "version": "1.4.1-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.7.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "macosArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.2.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-macosArm64Main-1.4.1-SNAPSHOT.klib",
+          "url": "k2o-macosarm64-1.4.1-SNAPSHOT.klib",
+          "size": 113350,
+          "sha512": "1b282029fbc39549551b2913262db80ba2f0dc3f02a8cccba6b645e9559614db7646f2cfaf5e227ac6ccdc352817fc765469dd2ecbf908382471ad2bd3005b6b",
+          "sha256": "17cf33a04b5591a4295c3b325de8a6625e2d84d3f85a09ab24508abb5c646866",
+          "sha1": "8a0cab78bf2ca7c37714082d74c953d737183cc5",
+          "md5": "aa8de17974c6ae1be7b184c1e555c102"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "k2o-macosarm64-1.4.1-SNAPSHOT-sources.jar",
+          "url": "k2o-macosarm64-1.4.1-SNAPSHOT-sources.jar",
+          "size": 41923,
+          "sha512": "6161d64814feb7e1d79729df3841d1da86450fcdf68bfe41acea6631fdfb90fc6180f740f57cd6ddd2584c18c9f703a1a5c2af936807996c2dcf5b6317d911bd",
+          "sha256": "fbc963d52790cc1662034bbb494ad57f6f6c0ff841fea0e28f8c4ee2c4fa2233",
+          "sha1": "96a9ca33b0cde6e3688947fa24766b1bb8490f23",
+          "md5": "6cc31e3b4faca3cc98587b9b865c6f01"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64ResourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.libraryelements": "kotlin-multiplatformresources",
+        "org.gradle.usage": "kotlin-multiplatformresources",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.2.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-1.4.1-SNAPSHOT.kotlin_resources.zip",
+          "url": "k2o-macosarm64-1.4.1-SNAPSHOT-kotlin_resources.kotlin_resources.zip",
+          "size": 320,
+          "sha512": "aa5d83657f2f79a5740e02986572f396b1f22edde69d2635ac35bd203eb05704543333a69b22a06a775f40c6180667ab2ffe270cbef5313fab826a8efda6e38e",
+          "sha256": "1a2ce1e84034808990a1d6fc181b3906239ef554bffdee1db4a527a4309d522d",
+          "sha1": "4160abdb49e240bfe35779c2416e4a7d99fc1ee2",
+          "md5": "83064256c0773dff74573c1f3e96feaf"
+        }
+      ]
+    },
+    {
+      "name": "macosArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "macos_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.4.20"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.runtime",
+          "module": "runtime",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-io-core",
+          "version": {
+            "requires": "0.9.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.0"
+          }
+        },
+        {
+          "group": "org.jraf.klibnanolog",
+          "module": "klibnanolog",
+          "version": {
+            "requires": "1.2.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "k2o-macosarm64-1.4.1-SNAPSHOT-metadata.jar",
+          "url": "k2o-macosarm64-1.4.1-SNAPSHOT-metadata.jar",
+          "size": 261,
+          "sha512": "1487e5a20c9e4d74f298e07c42e96a61be11b7a768c3fbc199ee138cd68e1fc2267d1cfe3f11f288acc05df755315344d052cc5f6f751f126ab4fe1caa5125ea",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "sha1": "2ad14aed781c4a73ed4dbb421966d408a0a06686",
+          "md5": "f43436d6bec321290f6af228ad602604"
+        }
+      ]
+    }
+  ]
+}
