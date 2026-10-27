@@ -1,5 +1,11 @@
 # Next version (unreleased)
 
+# v1.4.1
+
+_2026-10-27_
+
+- Enclose code in `render() {}` by default
+
 # v1.4.0
 
 _2026-09-13_

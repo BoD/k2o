@@ -45,6 +45,7 @@ import org.jraf.k2o.dsl.OpenScad.Element.RawTextElement
 import org.jraf.k2o.dsl.OpenScad.Element.Unindent
 import org.jraf.k2o.formatting.formatted
 import org.jraf.k2o.stdlib.Comment
+import org.jraf.k2o.stdlib.render
 import kotlin.coroutines.EmptyCoroutineContext
 
 /**
@@ -157,6 +158,7 @@ fun openScad(
   fa: Double? = null,
   fs: Double? = null,
   includeVersionHeader: Boolean = true,
+  render: Boolean = true,
   content: @Composable () -> Unit,
 ) {
   val openScad = OpenScad()
@@ -178,7 +180,13 @@ fun openScad(
       if (addNewLine) {
         Line("")
       }
-      content()
+      if (render) {
+        render {
+          content()
+        }
+      } else {
+        content()
+      }
     }
   }
   openScad.write(sink)
@@ -197,6 +205,7 @@ fun renderOpenScad(
   fa: Double? = null,
   fs: Double? = null,
   includeVersionHeader: Boolean = false,
+  render: Boolean = true,
   content: @Composable () -> Unit,
 ): String {
   val buffer = Buffer()
@@ -205,6 +214,7 @@ fun renderOpenScad(
     fa = fa,
     fs = fs,
     includeVersionHeader = includeVersionHeader,
+    render = render,
     content = content,
   )
   return buffer.readString()
